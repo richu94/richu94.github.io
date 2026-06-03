@@ -3,7 +3,7 @@
   <head>
      
     <meta charset="UTF-8">
-    <title>Kafaka - Richu</title>
+    <title>Kafka - Richu</title>
     <link rel="shortcut icon" href="/static/img/icon.png">
     <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
     <meta property="og:site_name" content="Richu">
-    <meta property="og:title" content="Kafaka"/>
+    <meta property="og:title" content="Kafka"/>
     
     <style>body:before{ content: ''; background-image: url(http://kycloud3.koyoo.cn/2025033176e99202503311036156636.jpg) }</style>
     
@@ -51,20 +51,18 @@
     <main>
     <div class="wrap min">
         <section class="post-title">
-            <h2>Kafaka</h2>
+            <h2>Kafka</h2>
             <div class="post-meta">
-                <time class="date">2025.03.26</time>
+                <time class="date">2026.06.03</time>
             
                 <span class="category"><a class="category-link" href="/categories/Java/">Java</a></span>
             
             </div>
         </section>
         <article class="post-content">
-        
-            <blockquote>这篇文章上次修改于 396 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
           
             <p>Kafka是最初由Linkedin公司开发，是一个分布式、支持分区的（partition）、多副本的（replica），基于zookeeper协调的分布式消息系统，它的最大的特性就是可以实时的处理大量数据以满足各种需求场景：比如基于hadoop的批处理系统、低延迟的实时系统、storm&#x2F;Spark流式处理引擎，web&#x2F;nginx日志、访问日志，消息服务等等，用scala语言编写，Linkedin于2010年贡献给了Apache基金会并成为顶级开源 项目。</p>
-<h2 id="一、Kafaka"><a href="#一、Kafaka" class="headerlink" title="一、Kafaka"></a>一、Kafaka</h2><p>（1）产生背景<br>当今社会各种应用系统诸如商业、社交、搜索、浏览等像信息工厂一样不断的生产出各种信息，在大数据时代，我们面临如下几个挑战：</p>
+<h2 id="一、Kafka"><a href="#一、Kafka" class="headerlink" title="一、Kafka"></a>一、Kafka</h2><p>（1）产生背景<br>当今社会各种应用系统诸如商业、社交、搜索、浏览等像信息工厂一样不断的生产出各种信息，在大数据时代，我们面临如下几个挑战：</p>
 <p>1.如何收集这些巨大的信息<br>2.如何分析它</p>
 <p>如何及时做到如上两点<br>以上几个挑战形成了一个业务需求模型，即生产者生产（produce）各种信息，消费者消费（consume）（处理分析）这些信息，而在生产者与消费者之间，需要一个沟通两者的桥梁-消息系统。从一个微观层面来说，这种需求也可理解为不同的系统之间如何传递消息。</p>
 <p>（2）Kafka的特性<br>高吞吐量、低延迟：kafka每秒可以处理几十万条消息，它的延迟最低只有几毫秒<br>可扩展性：kafka集群支持热扩展<br>持久性、可靠性：消息被持久化到本地磁盘，并且支持数据备份防止数据丢失<br>容错性：允许集群中节点失败（若副本数量为n,则允许n-1个节点失败）<br>高并发：支持数千个客户端同时读写</p>
@@ -76,8 +74,8 @@
 <p>bin&#x2F;zookeeper-server-start.sh config&#x2F;zookeeper.properties<br>在另一个终端窗口中启动 Kafka 服务器：</p>
 <p>bin&#x2F;kafka-server-start.sh config&#x2F;server.properties</p>
 <h2 id="三、kafka的命令操作"><a href="#三、kafka的命令操作" class="headerlink" title="三、kafka的命令操作"></a>三、kafka的命令操作</h2><p>在我们部署好kafka环境之后，我可以查看kafka的bin目录的文件，提供许多操作执行脚本，包括服务端、生产者、消费者、主题等等。</p>
-<p>这里我查看并使用的是windows的kafaka执行脚本，后缀是.bat,linux脚本则为.sh,演示时使用的为.bat脚本</p>
-<img src="../../../../images/224223.png" alt="kafaka执行脚本" title="kafaka执行脚本"/>
+<p>这里我查看并使用的是windows的kafka执行脚本，后缀是.bat,linux脚本则为.sh,演示时使用的为.bat脚本</p>
+<img src="../../../../images/224223.png" alt="kafka执行脚本" title="kafka执行脚本"/>
 
 <blockquote>
 <p>主题命令操作<br>kafka-topics.sh</p>
@@ -145,10 +143,10 @@
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2025/04/26/JUC/">JUC</a></li>
+                    <li>上一篇: <a href="/2026/06/03/Java%20Web/">Java Web</a></li>
                 
                 
-                    <li>下一篇: <a href="/2025/03/18/JetpackCompose/">Jetpack Compose</a></li>
+                    <li>下一篇: <a href="/2026/06/03/Uni-App/">Uni-App</a></li>
                 
             </ul>
         </section>
@@ -182,11 +180,11 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%83%A8%E7%BD%B2/">Hadoop大数据部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/%E4%BF%AE%E6%94%B9Centos%E8%99%9A%E6%8B%9F%E6%9C%BAip/">修改Centos虚拟机ip</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/17/Go%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90K8S%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">Go项目集成K8S常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/JQuery/">JQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/Php/">PHP</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/03/26/Uni-cloud/">Uni-Cloud</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Nginx/">Nginx</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/MySql/">Mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Vue/">Vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Java%20Web/">Java Web</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
-                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li></ul>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>

@@ -53,15 +53,13 @@
         <section class="post-title">
             <h2>NIO</h2>
             <div class="post-meta">
-                <time class="date">2025.07.05</time>
+                <time class="date">2026.06.03</time>
             
                 <span class="category"><a class="category-link" href="/categories/Java/">Java</a></span>
             
             </div>
         </section>
         <article class="post-content">
-        
-            <blockquote>这篇文章上次修改于 296 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
           
             <p>Java NIO（New IO）是从 Java 1.4 版本开始引入的一个新的 IO API，可以替代标准的 Java IO API。NIO 与原来的 IO 有同样的作用和目的，但是使用方式完全不同，NIO 支持面向缓冲区的、基于通道的 IO 操作。NIO 将以更加高效的方式进行文件的读写操作。</p>
 <h2 id="1-基本介绍"><a href="#1-基本介绍" class="headerlink" title="1.基本介绍"></a>1.基本介绍</h2><p>在1.4版本之前，JavaIO类库是阻塞式IO；从1.4版本开始，引进了新的异步IO库，被称为Java New IO类库，简称为Java NIO。</p>
@@ -400,47 +398,14 @@
 
 <h2 id="7-聊天业务"><a href="#7-聊天业务" class="headerlink" title="7.聊天业务"></a>7.聊天业务</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> richuff.top;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.netty.bootstrap.ServerBootstrap;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.ChannelInitializer;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.nio.NioEventLoopGroup;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.socket.SocketChannel;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.socket.nio.NioServerSocketChannel;</span><br><span class="line"><span class="keyword">import</span> io.netty.handler.codec.LengthFieldBasedFrameDecoder;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ChatServer</span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span>  LoggerFactory.getLogger(ChatServer.class);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">NioEventLoopGroup</span> <span class="variable">boss</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NioEventLoopGroup</span>();</span><br><span class="line">        <span class="type">NioEventLoopGroup</span> <span class="variable">worker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">NioEventLoopGroup</span>();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="type">ServerBootstrap</span> <span class="variable">bootstrap</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ServerBootstrap</span>();</span><br><span class="line">            bootstrap.channel(NioServerSocketChannel.class);</span><br><span class="line">            bootstrap.group(boss,worker);</span><br><span class="line">            bootstrap.childHandler(<span class="keyword">new</span> <span class="title class_">ChannelInitializer</span>&lt;SocketChannel&gt;() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">initChannel</span><span class="params">(SocketChannel ch)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                    ch.pipeline().addLast(<span class="keyword">new</span> <span class="title class_">LengthFieldBasedFrameDecoder</span>(<span class="number">1024</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            bootstrap.bind(<span class="number">8080</span>).sync().channel();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">            logger.info(String.valueOf(e));</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            boss.shutdownGracefully();</span><br><span class="line">            worker.shutdownGracefully();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </article>
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2025/07/07/Zookeeper/">ZooKeeper</a></li>
+                    <li>上一篇: <a href="/2026/06/03/Uni-App/">Uni-App</a></li>
                 
                 
-                    <li>下一篇: <a href="/2025/06/03/Redis/">Redis</a></li>
+                    <li>下一篇: <a href="/2026/04/23/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%83%A8%E7%BD%B2/">Hadoop大数据部署</a></li>
                 
             </ul>
         </section>
@@ -474,11 +439,11 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%83%A8%E7%BD%B2/">Hadoop大数据部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/%E4%BF%AE%E6%94%B9Centos%E8%99%9A%E6%8B%9F%E6%9C%BAip/">修改Centos虚拟机ip</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/17/Go%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90K8S%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">Go项目集成K8S常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/JQuery/">JQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/Php/">PHP</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/03/26/Uni-cloud/">Uni-Cloud</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Nginx/">Nginx</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/MySql/">Mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Vue/">Vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Java%20Web/">Java Web</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
-                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li></ul>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>

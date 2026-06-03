@@ -53,17 +53,15 @@
         <section class="post-title">
             <h2>Java Web</h2>
             <div class="post-meta">
-                <time class="date">2024.08.31</time>
+                <time class="date">2026.06.03</time>
             
                 <span class="category"><a class="category-link" href="/categories/Java/">Java</a></span>
             
             </div>
         </section>
         <article class="post-content">
-        
-            <blockquote>这篇文章上次修改于 603 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
           
-            <p>java web 是指有Java语言开发出来可以在万维网上访问浏览的程序。web通过一系列的通信实现与java的交互，java是你的后台，进行逻辑处理，中间层进行数据的交互，web显示给用户来看。</p>
+            <p>java web 是指由Java语言开发出来可以在万维网上访问浏览的程序。web通过一系列的通信实现与java的交互，java是你的后台，进行逻辑处理，中间层进行数据的交互，web显示给用户来看。</p>
 <h2 id="1-Maven"><a href="#1-Maven" class="headerlink" title="1.Maven"></a>1.Maven</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><p>1.下载</p>
 <p><a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">Maven – Download Apache Maven</a></p>
 <p>2.解压，配置仓库目录</p>
@@ -144,7 +142,7 @@
 <p>package:将编译的文件打包</p>
 <p>install:安装项目到本地仓库</p>
 <h2 id="2-Spring-Boot"><a href="#2-Spring-Boot" class="headerlink" title="2.Spring Boot"></a>2.Spring Boot</h2><h3 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h3><blockquote>
-<p>使用ideal专业版创建项目</p>
+<p>使用idea专业版创建项目</p>
 </blockquote>
 <h3 id="2-HTTP协议"><a href="#2-HTTP协议" class="headerlink" title="2.HTTP协议"></a>2.HTTP协议</h3><p>概述：</p>
 <blockquote>
@@ -271,7 +269,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/Simpleparam&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">Simpleparam</span><span class="params">(String name,Integer age)</span>&#123;</span><br><span class="line">        System.out.println(name+<span class="string">&quot;-&gt;&quot;</span>+age);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>@RequestParam注解<br>方法形参名称与请求参数名称不匹配，通过该注解完成映射该注解的required属性默认是true，代表请求参数必须传递骨显示器设型</p>
+<p>@RequestParam注解<br>方法形参名称与请求参数名称不匹配，通过该注解完成映射该注解的required属性默认是true，代表请求参数必须传递。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/Simpleparam&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">Simpleparam</span><span class="params">( <span class="meta">@RequestParam(name=&quot;name&quot;)</span> </span></span><br><span class="line"><span class="params">                                String username, Integer age)</span>&#123;</span><br><span class="line">        System.out.println(username+<span class="string">&quot;-&gt;&quot;</span>+age);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="4-数组接收参数"><a href="#4-数组接收参数" class="headerlink" title="4.数组接收参数"></a>4.数组接收参数</h3><p>1.使用数组</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/arrayParam&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">arrayParam</span><span class="params">(String[] hobby)</span>&#123;</span><br><span class="line">    System.out.println(Arrays.toString(hobby));</span><br><span class="line">    System.out.println(<span class="string">&quot;array&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;OK&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -395,7 +393,7 @@
 <h2 id="6-Mybatis"><a href="#6-Mybatis" class="headerlink" title="6.Mybatis"></a>6.Mybatis</h2><h3 id="1-配置数据库"><a href="#1-配置数据库" class="headerlink" title="1.配置数据库"></a>1.配置数据库</h3><p>在文件application.properties</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">配置数据库的连接信息-四要素</span></span><br><span class="line"><span class="comment">#驱动类名称</span></span><br><span class="line"><span class="string">spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="comment">#数据库连接的url</span></span><br><span class="line"><span class="string">spring.datasource.url=jdbc:mysql://localhost:3306/mybatis</span></span><br><span class="line"><span class="comment">#连接数据库的用户名</span></span><br><span class="line"><span class="string">spring.datasource.username=root</span></span><br><span class="line"><span class="comment">#连接数据库的密码</span></span><br><span class="line"><span class="string">spring.datasource.password=1234</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-idael添加mysql"><a href="#2-idael添加mysql" class="headerlink" title="2.idael添加mysql"></a>2.idael添加mysql</h3><p>点击Database面板添加mysql数据库</p>
+<h3 id="2-idea添加mysql"><a href="#2-idea添加mysql" class="headerlink" title="2.idea添加mysql"></a>2.idea添加mysql</h3><p>点击Database面板添加mysql数据库</p>
 <h3 id="3-JDBC"><a href="#3-JDBC" class="headerlink" title="3.JDBC"></a>3.JDBC</h3><blockquote>
 <p>使用java语言操作关系型数据库的一套API</p>
 <p>由数据库厂商提供JDBC的实现</p>
@@ -403,7 +401,7 @@
 <h3 id="4-数据库连接"><a href="#4-数据库连接" class="headerlink" title="4.数据库连接"></a>4.数据库连接</h3><blockquote>
 <p>数据库连接池是一个容器，负责分配、管理数据库连接</p>
 <p>它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个</p>
-<p>释放空闲空间超过最大空闲时间的连接，来避免因为没有释放连接而引起的数据库连接一楼 </p>
+<p>释放空闲空间超过最大空闲时间的连接，来避免因为没有释放连接而引起的数据库连接泄漏 </p>
 </blockquote>
 <blockquote>
 <p>标准接口:DataSource</p>
@@ -762,7 +760,7 @@ http://192.168.150.200/login.html ----------&gt; http://192.168.150.200/login   
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.xml.bind<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jaxb-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>在引入完JWT来赖后，就可以调用工具包中提供的API来完成JWT令牌的生成和校验</p>
+<p>在引入完JWT依赖后，就可以调用工具包中提供的API来完成JWT令牌的生成和校验</p>
 <p>工具类：Jwts</p>
 </blockquote>
 <p>生成JWT代码实现：</p>
@@ -1626,7 +1624,7 @@ afterCompletion方法：视图渲染完毕后执行，最后执行
 <p><strong>5. 目标对象：Target</strong>，通知所应用的对象</p>
 <pre><code>目标对象指的就是通知所应用的对象，我们就称之为目标对象。
 
-![image-20230112161657667](assets/image-20230112161657667.png) 。 
+ 
 </code></pre>
 <p>Spring的AOP底层是基于动态代理技术来实现的，也就是说在程序运行的时候，会自动的基于动态代理技术为目标对象生成一个对应的代理对象。在代理对象当中就会对目标对象当中的原始方法进行功能的增强。</p>
 <h2 id="14-AOP进阶"><a href="#14-AOP进阶" class="headerlink" title="14. AOP进阶"></a>14. AOP进阶</h2><p>AOP的基础知识学习完之后，下面我们对AOP当中的各个细节进行详细的学习。主要分为4个部分：</p>
@@ -1981,7 +1979,7 @@ afterCompletion方法：视图渲染完毕后执行，最后执行
 <p>@SpringBootConfiguration：该注解与@Configuration注解作用相同，用来声明当前也是一个配置类</p>
 <p>@ComponentScan：组件扫描，默认扫描当前引导类所在包及其子包</p>
 <p>@EnableAutoConfiguration：SpringBoot实现自动化配置的核心注解</p>
-<h3 id="6-自动配置原理"><a href="#6-自动配置原理" class="headerlink" title="6.自动配置原理"></a>6.自动配置原理</h3><p>方案二：@lmport导入。使用@lmport导入的类会被Spring加载到IOC容器中，导入形式主要有以下几种:</p>
+<h3 id="6-自动配置原理"><a href="#6-自动配置原理" class="headerlink" title="6.自动配置原理"></a>6.自动配置原理</h3><p>方案二：@Import导入。使用@Import导入的类会被Spring加载到IOC容器中，导入形式主要有以下几种:</p>
 <ul>
 <li>导入 普通类</li>
 </ul>
@@ -1999,9 +1997,9 @@ afterCompletion方法：视图渲染完毕后执行，最后执行
 <p>作用：按照一定的条件进行判断，在满足给定条件后才会注册对应的bean对象到SpringIOC容器中。</p>
 <p>位置：方法、类</p>
 <p>@Conditional本身是一个父注解，派生出大量的子注解:</p>
-<p>@ConditionalOnClass：判断环境中是否有对应字节码文件，才注册bean到16C容器。</p>
+<p>@ConditionalOnClass：判断环境中是否有对应字节码文件，才注册bean到IOC容器。</p>
 <p>@ConditionalOnMissingBean：判断环境中没有对应的bean（类型或名称），才注册bean到IOC容器.</p>
-<p>@ConditionalOnProperty：判断配置文件中有对应属性和值，才注册bean到10C容器。</p>
+<p>@ConditionalOnProperty：判断配置文件中有对应属性和值，才注册bean到IOC容器。</p>
 <p>@Bean</p>
 <p>@ConditionalOnMissingBean</p>
 <p>public Gson gson(GsonBuilder gsonBuilder)</p>
@@ -2289,10 +2287,10 @@ afterCompletion方法：视图渲染完毕后执行，最后执行
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2024/09/10/Vue/">Vue</a></li>
+                    <li>上一篇: <a href="/2026/06/03/Linux/">Linux</a></li>
                 
                 
-                    <li>下一篇: <a href="/2024/08/31/Nginx/">Nginx</a></li>
+                    <li>下一篇: <a href="/2026/06/03/Kafka/">Kafka</a></li>
                 
             </ul>
         </section>
@@ -2326,11 +2324,11 @@ afterCompletion方法：视图渲染完毕后执行，最后执行
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%83%A8%E7%BD%B2/">Hadoop大数据部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/%E4%BF%AE%E6%94%B9Centos%E8%99%9A%E6%8B%9F%E6%9C%BAip/">修改Centos虚拟机ip</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/17/Go%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90K8S%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">Go项目集成K8S常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/JQuery/">JQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/Php/">PHP</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/03/26/Uni-cloud/">Uni-Cloud</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Nginx/">Nginx</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/MySql/">Mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Vue/">Vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Java%20Web/">Java Web</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
-                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li></ul>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>

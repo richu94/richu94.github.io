@@ -53,15 +53,13 @@
         <section class="post-title">
             <h2>Linux</h2>
             <div class="post-meta">
-                <time class="date">2024.10.09</time>
+                <time class="date">2026.06.03</time>
             
                 <span class="category"><a class="category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a></span>
             
             </div>
         </section>
         <article class="post-content">
-        
-            <blockquote>这篇文章上次修改于 564 天前，可能其部分内容已经发生变化，如有疑问可询问作者。</blockquote>
           
             <p>Linux 是一种自由和开放源码的类 UNIX 操作系统。Linux 英文解释为 Linux is not Unix。Linux 遵循 GNU 通用公共许可证（GPL），任何个人和机构都可以自由地使用 Linux 的所有底层源代码，也可以自由地修改和再发布。由于 Linux 是自由软件，任何人都可以创建一个符合自己需求的 Linux 发行版。</p>
 <h2 id="1-Linux基础命令"><a href="#1-Linux基础命令" class="headerlink" title="1.Linux基础命令"></a>1.Linux基础命令</h2><h3 id="1-Linux的目录结构"><a href="#1-Linux的目录结构" class="headerlink" title="1.Linux的目录结构"></a>1.Linux的目录结构</h3><blockquote>
@@ -92,7 +90,7 @@
 </blockquote>
 <blockquote>
 <p>-h</p>
-<p>表示以易于阅读的形式，列出文件大小，不如K，M，G</p>
+<p>表示以易于阅读的形式，列出文件大小，如K，M，G</p>
 <p>-h选项必须要搭配 -l 一起使用</p>
 </blockquote>
 <h3 id="3-目录切换相关命令-cd-pwd"><a href="#3-目录切换相关命令-cd-pwd" class="headerlink" title="3.目录切换相关命令(cd&#x2F;pwd)"></a>3.目录切换相关命令(cd&#x2F;pwd)</h3><h4 id="1-cd"><a href="#1-cd" class="headerlink" title="1.cd"></a>1.cd</h4><blockquote>
@@ -163,7 +161,7 @@
 <h4 id="2-mv"><a href="#2-mv" class="headerlink" title="2.mv"></a>2.mv</h4><blockquote>
 <p>mv命令可以用于移动文件\文件夹，mv命令来自英文单词：move</p>
 </blockquote>
-<p><code>move 参数1 参数2</code></p>
+<p><code>mv 参数1 参数2</code></p>
 <ul>
 <li>参数1，Linux路径，表示被移动的文件或文件夹</li>
 <li>参数2，Linux路径，表示要移动去的地方，如果目标不存在，则进行改名，确保目标存在</li>
@@ -403,7 +401,7 @@
 </thead>
 <tbody><tr>
 <td>a</td>
-<td>在光标所在字符前开始插入</td>
+<td>在光标所在字符后开始插入</td>
 </tr>
 <tr>
 <td>o</td>
@@ -601,7 +599,7 @@
 </li>
 </ul>
 <p>举例：</p>
-<p><code>chown root hello.txt </code>   将hello.tx所属用户修改为root</p>
+<p><code>chown root hello.txt </code>   将hello.txt所属用户修改为root</p>
 <p><code>chown :root hello.txt</code>    将hello.txt所属用户组修改为root</p>
 <p><code>chown root:group hello.txt</code>  将hello.txt 所属用户修改为root，用户组修改为group</p>
 <p><code>chown -R root test</code> 将文件夹test的所属用户修改为root并对文件夹内全部内容应用相同规则</p>
@@ -636,7 +634,7 @@
 <li>clear 命令清屏</li>
 </ul>
 <h3 id="2-软件安装"><a href="#2-软件安装" class="headerlink" title="2.软件安装"></a>2.软件安装</h3><blockquote>
-<p>Linux CentOs 版本中使用 yum 进行软件的安装<br>Linux Ubantu 版本中使用 apt 进行软件的安装<br>yum [-y] [install | remove | search] 软件名称<br>apt [-y] [install | remove | search] 软件名称</p>
+<p>Linux CentOs 版本中使用 yum 进行软件的安装<br>Linux Ubuntu 版本中使用 apt 进行软件的安装<br>yum [-y] [install | remove | search] 软件名称<br>apt [-y] [install | remove | search] 软件名称</p>
 </blockquote>
 <p>选项：-y，表示无需手动确认安装或者是删除软件<br>install：安装</p>
 <p>remove：卸载</p>
@@ -673,7 +671,7 @@
 <p>参数1，表示被链接的文件或文件夹</p>
 <p>参数2，表示要链接去的目的地</p>
 </blockquote>
-<h3 id="4-日期、时区"><a href="#4-日期、时区" class="headerlink" title="4.日期、时区"></a>4.日期、时区</h3><h4 id="1-显示时间"><a href="#1-显示时间" class="headerlink" title="1.显示时间"></a>1.显示时间</h4><p>在 Linux 中，可以使用 <code>data [-d] [+格式化字符串]</code> 来查看时间。</p>
+<h3 id="4-日期、时区"><a href="#4-日期、时区" class="headerlink" title="4.日期、时区"></a>4.日期、时区</h3><h4 id="1-显示时间"><a href="#1-显示时间" class="headerlink" title="1.显示时间"></a>1.显示时间</h4><p>在 Linux 中，可以使用 <code>date [-d] [+格式化字符串]</code> 来查看时间。</p>
 <ul>
 <li>选项：-d，按照给定的字符串显示日期，通常用作日期的计算</li>
 <li>格式化字符串：通过特定的字符串标记，来控制日期的显示格式</li>
@@ -782,7 +780,7 @@
 </ul>
 <h3 id="8-主机状态"><a href="#8-主机状态" class="headerlink" title="8.主机状态"></a>8.主机状态</h3><h4 id="1-查看系统资源调用"><a href="#1-查看系统资源调用" class="headerlink" title="1.查看系统资源调用"></a>1.查看系统资源调用</h4><p>可以通过 <code>top</code> 命令查看 CPU 、内存使用情况，类似 Windows 的任务管理器。默认每五秒刷新一次，可以使用<code>q</code> 或者 <code>CTRL + c</code> 退出。</p>
 <p>top：命令名称， 20:11:27：当前系统时间， up 2:39：启动了 2分29秒， 3 users：3 个用户登录， load：1 、 5 、15 分钟负载</p>
-<p>Tasks ： 个进程，  running ： 个进程子在运行，  sleeping ： 个进程睡眠， 个停止进程， 个僵尸进程</p>
+<p>Tasks ： 个进程，  running ： 个进程在运行，  sleeping ： 个进程睡眠， 个停止进程， 个僵尸进程</p>
 <p>%Cpu(s) ： CPU 使用率， us ：用户 CPU 使用率， sy ：系统 CPU 使用率， ni ：高优先级进程占用 CPU 时间百分比， id ：空闲 CPU 率，</p>
 <p> wa ： IO 等待CPU 占用率， hi ： CPU 硬件中断率， si ： CPU 软件中断率， st ：强制等待占用 CPU 率</p>
 <p>Kib Mem ：物理内存， total ：总量， free ：空闲， used ：使用， buff&#x2F;cache ： buff 和 cache 占用</p>
@@ -806,7 +804,7 @@
 <blockquote>
 <p>top命令也可实现交互式</p>
 </blockquote>
-<p>h 键：按下h键，会显示帮助画面<br>c 键：按下c键，会显示产生进程的完整命令，等同于-c参数，再次按下c键，变为默认显示<br>f 键：按下f键，可以选择需要展示的项目<br>M 键：按下M键，根据驻留内存大小(RES)排序<br>P 键：按下P键，根据CPU使用百分比大小进行排序<br>T 键：按下T键，根据时间&#x2F;累计时间进行排序<br>E 键：按下E键，切换顶部内存显示单位<br>e 键：按下e键，切换进程内存显示单位<br>l 键：按下l键， 切换显示平均负载和启动时间信息。<br>i 键：按下i键， 不显示闲置或无用的进程，等同于一工参数， 再次按下，变为默认显示<br>t 键：按下t键，切换显示CPU状态信息<br>m 键：按下m键， 切换显示内存信息</p>
+<p>h 键：按下h键，会显示帮助画面<br>c 键：按下c键，会显示产生进程的完整命令，等同于-c参数，再次按下c键，变为默认显示<br>f 键：按下f键，可以选择需要展示的项目<br>M 键：按下M键，根据驻留内存大小(RES)排序<br>P 键：按下P键，根据CPU使用百分比大小进行排序<br>T 键：按下T键，根据时间&#x2F;累计时间进行排序<br>E 键：按下E键，切换顶部内存显示单位<br>e 键：按下e键，切换进程内存显示单位<br>l 键：按下l键， 切换显示平均负载和启动时间信息。<br>i 键：按下i键， 不显示闲置或无用的进程，等同于-i参数， 再次按下，变为默认显示<br>t 键：按下t键，切换显示CPU状态信息<br>m 键：按下m键， 切换显示内存信息</p>
 <h4 id="2-磁盘信息监控"><a href="#2-磁盘信息监控" class="headerlink" title="2.磁盘信息监控"></a>2.磁盘信息监控</h4><blockquote>
 <p>使用 <code>df</code> 命令，可以查看硬盘的使用情况</p>
 </blockquote>
@@ -847,7 +845,7 @@
 <blockquote>
 <p>永久生效<br>针对当前用户生效，配置在当前用户的： ~&#x2F;.bashrc 文件中</p>
 <p>vi</p>
-<p>针对所有用户生效，配置在系统的： &#x2F;etc&#x2F;profile 文件中<br>并通过语法： source 配置文件，进行立刻生效<br><code>souce /etc/profile</code></p>
+<p>针对所有用户生效，配置在系统的： &#x2F;etc&#x2F;profile 文件中<br>并通过语法： source 配置文件，进行立刻生效<br><code>source /etc/profile</code></p>
 </blockquote>
 <ul>
 <li><p>先创建一个文件夹，然后使用 <code>vim</code> 编辑器编辑文件内容</p>
@@ -858,9 +856,9 @@
 <h4 id="5-如果不小心改坏了环境变量"><a href="#5-如果不小心改坏了环境变量" class="headerlink" title="5.如果不小心改坏了环境变量"></a>5.如果不小心改坏了环境变量</h4><blockquote>
 <p>export PATH&#x3D;&#x2F;usr&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;bin:&#x2F;sbin:&#x2F;usr&#x2F;X11R6&#x2F;bin</p>
 <p>vim &#x2F;etc&#x2F;profile</p>
-<p>soruce &#x2F;etc&#x2F;profile</p>
+<p>source &#x2F;etc&#x2F;profile</p>
 </blockquote>
-<h3 id="10-上传和下载"><a href="#10-上传和下载" class="headerlink" title="10.上传和下载"></a>10.上传和下载</h3><h4 id="1-使用-FianlShell-下面的窗体直接进行数据的上传和下载"><a href="#1-使用-FianlShell-下面的窗体直接进行数据的上传和下载" class="headerlink" title="1.使用 FianlShell 下面的窗体直接进行数据的上传和下载"></a>1.使用 FianlShell 下面的窗体直接进行数据的上传和下载</h4><p>我们可以直接使用 FinallShell 与虚拟机之间进行资源的交换。</p>
+<h3 id="10-上传和下载"><a href="#10-上传和下载" class="headerlink" title="10.上传和下载"></a>10.上传和下载</h3><h4 id="1-使用-FinalShell-下面的窗体直接进行数据的上传和下载"><a href="#1-使用-FinalShell-下面的窗体直接进行数据的上传和下载" class="headerlink" title="1.使用 FinalShell 下面的窗体直接进行数据的上传和下载"></a>1.使用 FinalShell 下面的窗体直接进行数据的上传和下载</h4><p>我们可以直接使用 FinalShell 与虚拟机之间进行资源的交换。</p>
 <p>在 FinalShell 下面的文件中找到我们需要下载的文件，右键下载就可以了。</p>
 <p>上传文件的时候，我们可以直接从我们本地电脑的桌面将文件给拖进来，它自己就会实现文件的上传。</p>
 <h4 id="2-使用rz、sz命令实现数据的上传和下载"><a href="#2-使用rz、sz命令实现数据的上传和下载" class="headerlink" title="2.使用rz、sz命令实现数据的上传和下载"></a>2.使用rz、sz命令实现数据的上传和下载</h4><blockquote>
@@ -953,7 +951,7 @@
 <p>重载防火墙 firewall-cmd –reload</p>
 </blockquote>
 <h3 id="2-tomcat-springboot自动集成tomcat"><a href="#2-tomcat-springboot自动集成tomcat" class="headerlink" title="2.tomcat (springboot自动集成tomcat)"></a>2.tomcat (springboot自动集成tomcat)</h3><h4 id="1-下载JDK软件"><a href="#1-下载JDK软件" class="headerlink" title="1.下载JDK软件"></a>1.下载JDK软件</h4><p><code>https://www.oracle.com/java/technologies/downloads/#java17</code></p>
-<h4 id="2-登录root用户"><a href="#2-登录root用户" class="headerlink" title="2.登录root用户"></a>2.登录root用户</h4><h4 id="3-通过findshell传输文件"><a href="#3-通过findshell传输文件" class="headerlink" title="3.通过findshell传输文件"></a>3.通过findshell传输文件</h4><h4 id="5-解压缩"><a href="#5-解压缩" class="headerlink" title="5.解压缩"></a>5.解压缩</h4><p><code>tar -zxvf /root/serve/jdk-17_linux-aarch64_bin.tar.gz -C /root/server</code></p>
+<h4 id="2-登录root用户"><a href="#2-登录root用户" class="headerlink" title="2.登录root用户"></a>2.登录root用户</h4><h4 id="3-通过FinalShell传输文件"><a href="#3-通过FinalShell传输文件" class="headerlink" title="3.通过FinalShell传输文件"></a>3.通过FinalShell传输文件</h4><h4 id="5-解压缩"><a href="#5-解压缩" class="headerlink" title="5.解压缩"></a>5.解压缩</h4><p><code>tar -zxvf /root/serve/jdk-17_linux-aarch64_bin.tar.gz -C /root/server</code></p>
 <h4 id="6-建立软连接"><a href="#6-建立软连接" class="headerlink" title="6.建立软连接"></a>6.建立软连接</h4><p><code>ln -s /root/server/jdk-17.0.10 /root/jdk</code></p>
 <h4 id="7-构建全局的环境变量"><a href="#7-构建全局的环境变量" class="headerlink" title="7.构建全局的环境变量"></a>7.构建全局的环境变量</h4><p><code>vim /etc/profile</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/root/jdk</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
@@ -970,10 +968,10 @@
         <section class="post-near">
             <ul>
                 
-                    <li>上一篇: <a href="/2024/10/12/SpringMVC/">NIO</a></li>
+                    <li>上一篇: <a href="/2026/06/03/JavaScript/">JavaScript</a></li>
                 
                 
-                    <li>下一篇: <a href="/2024/10/05/CSS/">CSS</a></li>
+                    <li>下一篇: <a href="/2026/06/03/Java%20Web/">Java Web</a></li>
                 
             </ul>
         </section>
@@ -1007,11 +1005,11 @@
             <div class="row">
                 <div class="col-m-4">
                     <h3 class="title-recent">最新文章：</h3>
-                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/Hadoop%E5%A4%A7%E6%95%B0%E6%8D%AE%E9%83%A8%E7%BD%B2/">Hadoop大数据部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/23/%E4%BF%AE%E6%94%B9Centos%E8%99%9A%E6%8B%9F%E6%9C%BAip/">修改Centos虚拟机ip</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/17/Go%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90K8S%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">Go项目集成K8S常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/JQuery/">JQuery</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/04/15/Php/">PHP</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/03/26/Uni-cloud/">Uni-Cloud</a></li></ul>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Nginx/">Nginx</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/MySql/">Mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Vue/">Vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/JavaScript/">JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Linux/">Linux</a></li><li class="post-list-item"><a class="post-list-link" href="/2026/06/03/Java%20Web/">Java Web</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-date">时光机：</h3>
-                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a></li></ul>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/06/">六月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">四月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">三月 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/07/">七月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/05/">五月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">二月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">十二月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">十一月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">十月 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a></li></ul>
                 </div>
                 <div class="col-m-4">
                     <h3 class="title-tags">标签云：</h3>
