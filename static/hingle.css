@@ -921,9 +921,9 @@ footer .sub-footer p{ font-size: .875em }
 
 /* - Prism 代码块样式 */
 pre[class*="language-"]{
-    color: #d8dee9;
-    border-color: #30363d;
-    background: #161b22;
+    color: #f8f8f2;
+    border-color: #3b4261;
+    background: #171923;
     overflow-x: auto;
     tab-size: 2;
 }
@@ -935,17 +935,33 @@ pre[class*="language-"] code{
     white-space: pre;
 }
 
-.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata{ color: #8b949e }
-.token.punctuation{ color: #c9d1d9 }
-.token.property, .token.tag, .token.boolean, .token.number, .token.function-name, .token.constant, .token.symbol, .token.deleted{ color: #ff7b72 }
-.token.selector, .token.attr-name, .token.string, .token.char, .token.function, .token.builtin, .token.inserted{ color: #a5d6ff }
+pre[class*="language-"]::selection,
+pre[class*="language-"] code::selection,
+pre[class*="language-"] code span::selection{ background: #3d466b }
 
-.token.operator, .token.entity, .token.url, .token.variable{ color: #79c0ff }
-.token.atrule, .token.attr-value, .token.keyword, .token.class-name{ color: #d2a8ff }
-.token.regex, .token.important{ color: #ffa657 }
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata{ color: #62d196; font-style: italic }
+.token.punctuation{ color: #d7dae0 }
+.token.property{ color: #5ce1e6 }
+.token.tag, .token.deleted{ color: #ff5c8a }
+.token.boolean, .token.number{ color: #ff9f43 }
+.token.constant, .token.symbol{ color: #ffcc66 }
+.token.selector, .token.inserted{ color: #7bed9f }
+.token.attr-name{ color: #ffd866 }
+.token.string, .token.char{ color: #c3f584 }
+.token.function, .token.function-name{ color: #82aaff }
+.token.builtin{ color: #4dd0e1 }
+.token.operator{ color: #ff6ac1 }
+.token.entity, .token.url{ color: #67e8f9 }
+.token.variable{ color: #ffb86c }
+.token.atrule{ color: #c792ea }
+.token.attr-value{ color: #a8ff60 }
+.token.keyword{ color: #ff79c6 }
+.token.class-name{ color: #ffe66d }
+.token.regex{ color: #ff5370 }
+.token.important{ color: #ffcb6b }
 
 .language-css .token.string, .style .token.string {
-    color: #a5d6ff;
+    color: #a8ff60;
     background: transparent;
 }
 
@@ -963,7 +979,7 @@ pre[class*="language-"].line-numbers {
 }
 
 pre[class*="language-"] .line-numbers-rows{
-    border-color: #484f58;
+    border-color: #4b5275;
 }
 
 .line-numbers .line-numbers-rows {
