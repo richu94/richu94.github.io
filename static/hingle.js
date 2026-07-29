@@ -90,6 +90,52 @@ var Paul_Hingle = function (config) {
         }
     };
 
+    this.code_copy = function () {
+        var blocks = content.querySelectorAll('pre[class*="language-"]');
+
+        ks.each(blocks, function (pre) {
+            var code = pre.querySelector("code");
+            if(!code || pre.parentNode.classList.contains("code-block")) return;
+
+            var wrap = document.createElement("div");
+            var button = document.createElement("button");
+            wrap.className = "code-block";
+            button.className = "code-copy-btn";
+            button.type = "button";
+            button.textContent = "复制";
+            button.setAttribute("aria-label", "复制代码");
+
+            pre.parentNode.insertBefore(wrap, pre);
+            wrap.appendChild(pre);
+            wrap.appendChild(button);
+
+            button.addEventListener("click", function () {
+                var text = code.textContent;
+                var copy = navigator.clipboard && window.isSecureContext
+                    ? navigator.clipboard.writeText(text)
+                    : new Promise(function (resolve, reject) {
+                        var input = document.createElement("textarea");
+                        input.value = text;
+                        input.style.position = "fixed";
+                        input.style.opacity = "0";
+                        document.body.appendChild(input);
+                        input.select();
+                        document.execCommand("copy") ? resolve() : reject();
+                        document.body.removeChild(input);
+                    });
+
+                copy.then(function () {
+                    button.textContent = "已复制";
+                    button.classList.add("copied");
+                    window.setTimeout(function () {
+                        button.textContent = "复制";
+                        button.classList.remove("copied");
+                    }, 1600);
+                });
+            });
+        });
+    };
+
     this.comment_list = function () {
         ks(".comment-content [href^='#comment']").each(function (t) {
             var item = ks.select(t.getAttribute("href"));
@@ -117,6 +163,7 @@ var Paul_Hingle = function (config) {
     if(content){
         this.tree();
         this.links();
+        this.code_copy();
         this.comment_list();
     }
 

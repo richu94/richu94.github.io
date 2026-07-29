@@ -921,9 +921,9 @@ footer .sub-footer p{ font-size: .875em }
 
 /* - Prism 代码块样式 */
 pre[class*="language-"]{
-    color: #f8f8f2;
-    border-color: #3b4261;
-    background: #171923;
+    color: #3f3340;
+    border-color: #f3b8ca;
+    background: #fff1f5;
     overflow-x: auto;
     tab-size: 2;
 }
@@ -937,31 +937,31 @@ pre[class*="language-"] code{
 
 pre[class*="language-"]::selection,
 pre[class*="language-"] code::selection,
-pre[class*="language-"] code span::selection{ background: #3d466b }
+pre[class*="language-"] code span::selection{ background: #f8c9d8 }
 
-.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata{ color: #62d196; font-style: italic }
-.token.punctuation{ color: #d7dae0 }
-.token.property{ color: #5ce1e6 }
-.token.tag, .token.deleted{ color: #ff5c8a }
-.token.boolean, .token.number{ color: #ff9f43 }
-.token.constant, .token.symbol{ color: #ffcc66 }
-.token.selector, .token.inserted{ color: #7bed9f }
-.token.attr-name{ color: #ffd866 }
-.token.string, .token.char{ color: #c3f584 }
-.token.function, .token.function-name{ color: #82aaff }
-.token.builtin{ color: #4dd0e1 }
-.token.operator{ color: #ff6ac1 }
-.token.entity, .token.url{ color: #67e8f9 }
-.token.variable{ color: #ffb86c }
-.token.atrule{ color: #c792ea }
-.token.attr-value{ color: #a8ff60 }
-.token.keyword{ color: #ff79c6 }
-.token.class-name{ color: #ffe66d }
-.token.regex{ color: #ff5370 }
-.token.important{ color: #ffcb6b }
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata{ color: #2e7d5b; font-style: italic }
+.token.punctuation{ color: #665463 }
+.token.property{ color: #007c91 }
+.token.tag, .token.deleted{ color: #d81b60 }
+.token.boolean, .token.number{ color: #e65100 }
+.token.constant, .token.symbol{ color: #a05a00 }
+.token.selector, .token.inserted{ color: #00875a }
+.token.attr-name{ color: #9c6500 }
+.token.string, .token.char{ color: #2e7d32 }
+.token.function, .token.function-name{ color: #1565c0 }
+.token.builtin{ color: #00838f }
+.token.operator{ color: #c2185b }
+.token.entity, .token.url{ color: #007c91 }
+.token.variable{ color: #d84315 }
+.token.atrule{ color: #7b1fa2 }
+.token.attr-value{ color: #388e3c }
+.token.keyword{ color: #c2185b }
+.token.class-name{ color: #8d6300 }
+.token.regex{ color: #d32f2f }
+.token.important{ color: #b26a00 }
 
 .language-css .token.string, .style .token.string {
-    color: #a8ff60;
+    color: #388e3c;
     background: transparent;
 }
 
@@ -979,7 +979,34 @@ pre[class*="language-"].line-numbers {
 }
 
 pre[class*="language-"] .line-numbers-rows{
-    border-color: #4b5275;
+    border-color: #efb2c5;
+}
+
+.code-block{
+    position: relative;
+}
+
+.code-copy-btn{
+    top: .65em;
+    right: .65em;
+    z-index: 1;
+    position: absolute;
+    min-width: 4.5em;
+    padding: .35em .7em;
+    color: #9d174d;
+    border: 1px solid #efa6bf;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .88);
+    cursor: pointer;
+    font-size: .8em;
+    line-height: 1.4;
+}
+
+.code-copy-btn:hover{ background: #ffd6e3 }
+.code-copy-btn.copied{
+    color: #166534;
+    border-color: #86c99a;
+    background: #eaf8ee;
 }
 
 .line-numbers .line-numbers-rows {
