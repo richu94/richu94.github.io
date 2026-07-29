@@ -923,7 +923,7 @@ footer .sub-footer p{ font-size: .875em }
 pre[class*="language-"]{
     color: #3f3340;
     border-color: #f3b8ca;
-    background: #fff1f5;
+    background: rgba(255, 241, 245, .68);
     overflow-x: auto;
     tab-size: 2;
 }
