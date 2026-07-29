@@ -67,7 +67,24 @@
 <h2 id="1-C-脚本"><a href="#1-C-脚本" class="headerlink" title="1.C#脚本"></a>1.C#脚本</h2><blockquote>
 <p>脚本的基本结构，其中Move是脚本名</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Move</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Move : MonoBehaviour
+&#123;
+    &#x2F;&#x2F; Start is called before the first frame update
+    void Start()
+    &#123;
+        
+    &#125;
+
+    &#x2F;&#x2F; Update is called once per frame
+    void Update()
+    &#123;
+        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>脚本的生命周期</p>
@@ -91,17 +108,20 @@
 <p>[SerializeField] 在编辑器中无法修改，在脚本内可修改</p>
 <p>序列化字段</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">SerializeField</span>]</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> a = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">[SerializeField]
+private int a &#x3D; 100;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>[HideInInspector]在编辑器中无法显示</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">HideInInspector</span>]</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> b;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">[HideInInspector]
+private int b;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>[Range()]</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Range(0,100)</span>]</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> c;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">[Range(0,100)]
+private int c;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="2-脚本的执行顺序"><a href="#2-脚本的执行顺序" class="headerlink" title="2.脚本的执行顺序"></a>2.脚本的执行顺序</h2><blockquote>
 <p>先执行所有脚本的Awake方法，再执行所有脚本的OnEnable方法。。。</p>
@@ -127,121 +147,348 @@
 <h2 id="5-Vector3的使用"><a href="#5-Vector3的使用" class="headerlink" title="5.Vector3的使用"></a>5.Vector3的使用</h2><blockquote>
 <p>向量、坐标、旋转，缩放</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Vector3 v = <span class="keyword">new</span> Vector3();</span><br><span class="line">Vector3 v3 = <span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">0.5f</span>,<span class="number">0.6f</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">Vector3 v &#x3D; new Vector3();
+Vector3 v3 &#x3D; new Vector3(1, 0.5f,0.6f);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v3 = Vector3.zero;</span><br><span class="line">v3 = Vector3.one;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">v3 &#x3D; Vector3.zero;
+v3 &#x3D; Vector3.one;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>修改向量的xyz值</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v3.x = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">v3.x &#x3D; 1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>两个向量的计算</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//角度</span></span><br><span class="line">Debug.Log(Vector3.Angle(v31, v3));</span><br><span class="line"><span class="comment">//距离</span></span><br><span class="line">Debug.Log(Vector3.Distance(v31, v3));</span><br><span class="line"><span class="comment">//点乘</span></span><br><span class="line">Debug.Log(Vector3.Dot(v31, v3));</span><br><span class="line"><span class="comment">//叉乘</span></span><br><span class="line">Debug.Log(Vector3.Cross(v31, v3));</span><br><span class="line"><span class="comment">//插值</span></span><br><span class="line"><span class="comment">//0.5为两个向量的中点</span></span><br><span class="line">Debug.Log(Vector3.Lerp(Vector3.zero, Vector3.one, <span class="number">0.5f</span>));</span><br><span class="line"><span class="comment">//向量的模</span></span><br><span class="line">Debug.Log(v3.magnitude);</span><br><span class="line"><span class="comment">//规范化向量(单位化向量)</span></span><br><span class="line">Debug.Log(v3.normalized);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;角度
+Debug.Log(Vector3.Angle(v31, v3));
+&#x2F;&#x2F;距离
+Debug.Log(Vector3.Distance(v31, v3));
+&#x2F;&#x2F;点乘
+Debug.Log(Vector3.Dot(v31, v3));
+&#x2F;&#x2F;叉乘
+Debug.Log(Vector3.Cross(v31, v3));
+&#x2F;&#x2F;插值
+&#x2F;&#x2F;0.5为两个向量的中点
+Debug.Log(Vector3.Lerp(Vector3.zero, Vector3.one, 0.5f));
+&#x2F;&#x2F;向量的模
+Debug.Log(v3.magnitude);
+&#x2F;&#x2F;规范化向量(单位化向量)
+Debug.Log(v3.normalized);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="6-欧拉角与四元数"><a href="#6-欧拉角与四元数" class="headerlink" title="6.欧拉角与四元数"></a>6.欧拉角与四元数</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//欧拉角，四元数</span></span><br><span class="line">Vector3 rotate = <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">30</span>,<span class="number">0</span>);</span><br><span class="line">Quaternion quat = Quaternion.identity;</span><br><span class="line"><span class="comment">//欧拉角转换为四元数</span></span><br><span class="line">quat = Quaternion.Euler(rotate);</span><br><span class="line"><span class="comment">//四元数转换为欧拉角</span></span><br><span class="line">rotate = quat.eulerAngles ;</span><br><span class="line"><span class="comment">//看向一个物体(旋转到一个方向)</span></span><br><span class="line">quat = Quaternion.LookRotation(<span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="6-欧拉角与四元数"><a href="#6-欧拉角与四元数" class="headerlink" title="6.欧拉角与四元数"></a>6.欧拉角与四元数</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;欧拉角，四元数
+Vector3 rotate &#x3D; new Vector3(0,30,0);
+Quaternion quat &#x3D; Quaternion.identity;
+&#x2F;&#x2F;欧拉角转换为四元数
+quat &#x3D; Quaternion.Euler(rotate);
+&#x2F;&#x2F;四元数转换为欧拉角
+rotate &#x3D; quat.eulerAngles ;
+&#x2F;&#x2F;看向一个物体(旋转到一个方向)
+quat &#x3D; Quaternion.LookRotation(new Vector3(0,0,0));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="7-Debug"><a href="#7-Debug" class="headerlink" title="7.Debug"></a>7.Debug</h2><blockquote>
 <p>可以定义共有变量，程序运行后再检测面板查看数据</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="comment">//警告</span></span><br><span class="line">Debug.LogWarning(<span class="string">&quot;&quot;</span>);</span><br><span class="line"><span class="comment">//错误</span></span><br><span class="line">Debug.LogError(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//绘制一条线(指定颜色为红色)</span></span><br><span class="line">Debug.DrawLine(Vector3.one, Vector3.zero, Color.red);</span><br><span class="line"><span class="comment">//绘制一条射线 (起点，射线，颜色)</span></span><br><span class="line">Debug.DrawRay(Vector3.one, Vector3.up, Color.yellow);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">Debug.Log(&quot;&quot;);
+&#x2F;&#x2F;警告
+Debug.LogWarning(&quot;&quot;);
+&#x2F;&#x2F;错误
+Debug.LogError(&quot;&quot;);
+
+&#x2F;&#x2F;绘制一条线(指定颜色为红色)
+Debug.DrawLine(Vector3.one, Vector3.zero, Color.red);
+&#x2F;&#x2F;绘制一条射线 (起点，射线，颜色)
+Debug.DrawRay(Vector3.one, Vector3.up, Color.yellow);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="8-游戏物体的使用方法"><a href="#8-游戏物体的使用方法" class="headerlink" title="8.游戏物体的使用方法"></a>8.游戏物体的使用方法</h2><blockquote>
 <p>拿到当前脚本所挂载的游戏物体</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EmptyTest</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> GameObject cube;</span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class EmptyTest : MonoBehaviour
+&#123;
+    public GameObject cube;
+    &#x2F;&#x2F; Start is called before the first frame update
+    void Start()
+    &#123;
+        
+    &#125;
+
+    &#x2F;&#x2F; Update is called once per frame
+    void Update()
+    &#123;
+        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>判断组件的激活状态</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所在层级是否激活</span></span><br><span class="line">Debug.Log(gameObject.activeInHierarchy);</span><br><span class="line"><span class="comment">//自身是否激活</span></span><br><span class="line">Debug.Log(gameObject.activeSelf);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;所在层级是否激活
+Debug.Log(gameObject.activeInHierarchy);
+&#x2F;&#x2F;自身是否激活
+Debug.Log(gameObject.activeSelf);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>获取transform组件</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Transform trans = <span class="keyword">this</span>.transform;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">Transform trans &#x3D; this.transform;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>获取物体的组件</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取自身的其他组件</span></span><br><span class="line">BoxCollider bc  = GetComponent&lt;BoxCollider&gt;();</span><br><span class="line"><span class="comment">//获取子物体的组件</span></span><br><span class="line">GetComponentInChildren&lt;BoxCollider&gt;(bc);</span><br><span class="line"><span class="comment">//获取父物体的组件</span></span><br><span class="line">GetComponentInParent&lt;BoxCollider&gt;(bc);</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加一个组件</span></span><br><span class="line">cube.AddComponent&lt;AudioSource&gt;();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;获取自身的其他组件
+BoxCollider bc  &#x3D; GetComponent&lt;BoxCollider&gt;();
+&#x2F;&#x2F;获取子物体的组件
+GetComponentInChildren&lt;BoxCollider&gt;(bc);
+&#x2F;&#x2F;获取父物体的组件
+GetComponentInParent&lt;BoxCollider&gt;(bc);
+
+&#x2F;&#x2F;添加一个组件
+cube.AddComponent&lt;AudioSource&gt;();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>获取游戏物体</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过物体名</span></span><br><span class="line">GameObject Capsule1 = GameObject.Find(<span class="string">&quot;Capsule&quot;</span>);</span><br><span class="line">Debug.Log(Capsule1.name);</span><br><span class="line"><span class="comment">//通过标签获取</span></span><br><span class="line">GameObject Capsule2 = GameObject.FindWithTag(<span class="string">&quot;Player&quot;</span>);</span><br><span class="line">Debug.Log(Capsule2.name);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;通过物体名
+GameObject Capsule1 &#x3D; GameObject.Find(&quot;Capsule&quot;);
+Debug.Log(Capsule1.name);
+&#x2F;&#x2F;通过标签获取
+GameObject Capsule2 &#x3D; GameObject.FindWithTag(&quot;Player&quot;);
+Debug.Log(Capsule2.name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>Capsule1.SetActive(false);</code>取消激活</p>
 <blockquote>
 <p>预设体</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用预制体创建一个实例</span></span><br><span class="line">Instantiate(Prefab);</span><br><span class="line"><span class="comment">//创建一个物体，并且作为本游戏物体的子物体</span></span><br><span class="line">Instantiate(Prefab,transform);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;使用预制体创建一个实例
+Instantiate(Prefab);
+&#x2F;&#x2F;创建一个物体，并且作为本游戏物体的子物体
+Instantiate(Prefab,transform);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个物体</span></span><br><span class="line">GameObject go = Instantiate(Prefab,Vector3.up,Quaternion.identity);</span><br><span class="line"><span class="comment">//销毁一个游戏物体</span></span><br><span class="line">Destroy(go);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;创建一个物体
+GameObject go &#x3D; Instantiate(Prefab,Vector3.up,Quaternion.identity);
+&#x2F;&#x2F;销毁一个游戏物体
+Destroy(go);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="9-游戏时间"><a href="#9-游戏时间" class="headerlink" title="9.游戏时间"></a>9.游戏时间</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//游戏到现在所花的时间</span></span><br><span class="line">Debug.Log(Time.time);</span><br><span class="line"><span class="comment">//时间缩放值</span></span><br><span class="line">Debug.Log(Time.timeScale);</span><br><span class="line"><span class="comment">//固定时间间隔</span></span><br><span class="line">Debug.Log(Time.fixedDeltaTime);</span><br><span class="line"><span class="comment">//上一帧到下一帧的时间间隔</span></span><br><span class="line">Debug.Log(Time.deltaTime);</span><br></pre></td></tr></table></figure>
+<h2 id="9-游戏时间"><a href="#9-游戏时间" class="headerlink" title="9.游戏时间"></a>9.游戏时间</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;游戏到现在所花的时间
+Debug.Log(Time.time);
+&#x2F;&#x2F;时间缩放值
+Debug.Log(Time.timeScale);
+&#x2F;&#x2F;固定时间间隔
+Debug.Log(Time.fixedDeltaTime);
+&#x2F;&#x2F;上一帧到下一帧的时间间隔
+Debug.Log(Time.deltaTime);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="10-路径权限"><a href="#10-路径权限" class="headerlink" title="10.路径权限"></a>10.路径权限</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只读，压缩加密</span></span><br><span class="line">Debug.Log(Application.dataPath + <span class="string">&quot;/新建.txtx&quot;</span>);</span><br><span class="line"><span class="comment">//持久化文件夹路径</span></span><br><span class="line">Debug.Log(Application.persistentDataPath);</span><br><span class="line"><span class="comment">//StreamingAssert文件夹路径(只读，配置文件);</span></span><br><span class="line">Debug.Log(Application.streamingAssetsPath);</span><br><span class="line"><span class="comment">//临时文件夹</span></span><br><span class="line">Debug.Log(Application.temporaryCachePath);</span><br><span class="line"><span class="comment">//是否在后台运行</span></span><br><span class="line">Debug.Log(Application.runInBackground);</span><br><span class="line"><span class="comment">//打开url</span></span><br><span class="line">Application.OpenURL(<span class="string">&quot;https://www.baidu.com&quot;</span>);</span><br><span class="line"><span class="comment">//退出游戏</span></span><br><span class="line">Application.Quit();</span><br></pre></td></tr></table></figure>
+<h2 id="10-路径权限"><a href="#10-路径权限" class="headerlink" title="10.路径权限"></a>10.路径权限</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;只读，压缩加密
+Debug.Log(Application.dataPath + &quot;&#x2F;新建.txtx&quot;);
+&#x2F;&#x2F;持久化文件夹路径
+Debug.Log(Application.persistentDataPath);
+&#x2F;&#x2F;StreamingAssert文件夹路径(只读，配置文件);
+Debug.Log(Application.streamingAssetsPath);
+&#x2F;&#x2F;临时文件夹
+Debug.Log(Application.temporaryCachePath);
+&#x2F;&#x2F;是否在后台运行
+Debug.Log(Application.runInBackground);
+&#x2F;&#x2F;打开url
+Application.OpenURL(&quot;https:&#x2F;&#x2F;www.baidu.com&quot;);
+&#x2F;&#x2F;退出游戏
+Application.Quit();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="11-场景类"><a href="#11-场景类" class="headerlink" title="11.场景类"></a>11.场景类</h2><blockquote>
 <p>场景类，场景管理类</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//跳转场景</span></span><br><span class="line">SceneManager.LoadScene(<span class="number">1</span>);   <span class="comment">//1号场景</span></span><br><span class="line">SceneManager.LoadScene(<span class="string">&quot;Test&quot;</span>); <span class="comment">//场景名称</span></span><br><span class="line"><span class="comment">//获取当前场景</span></span><br><span class="line">Scene scence = SceneManager.GetActiveScene();</span><br><span class="line">Debug.Log(scence.name);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;跳转场景
+SceneManager.LoadScene(1);   &#x2F;&#x2F;1号场景
+SceneManager.LoadScene(&quot;Test&quot;); &#x2F;&#x2F;场景名称
+&#x2F;&#x2F;获取当前场景
+Scene scence &#x3D; SceneManager.GetActiveScene();
+Debug.Log(scence.name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>场景的API</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//场景是否在加载</span></span><br><span class="line">Debug.Log(scence.isLoaded);</span><br><span class="line"><span class="comment">//场景的路径</span></span><br><span class="line">Debug.Log(scence.path);</span><br><span class="line"><span class="comment">//场景的索引</span></span><br><span class="line">Debug.Log(scence.buildIndex);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//获取场景的游戏物体</span></span><br><span class="line">GameObject[] games = scence.GetRootGameObjects();</span><br><span class="line">Debug.Log(games.Length);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;场景是否在加载
+Debug.Log(scence.isLoaded);
+&#x2F;&#x2F;场景的路径
+Debug.Log(scence.path);
+&#x2F;&#x2F;场景的索引
+Debug.Log(scence.buildIndex);
+ 
+&#x2F;&#x2F;获取场景的游戏物体
+GameObject[] games &#x3D; scence.GetRootGameObjects();
+Debug.Log(games.Length);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>场景管理类</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//场景管理类</span></span><br><span class="line"><span class="comment">//当前场景数</span></span><br><span class="line">Debug.Log(SceneManager.sceneCount.ToString());</span><br><span class="line"><span class="comment">//创建新场景</span></span><br><span class="line">SceneManager.CreateScene(<span class="string">&quot;newScene&quot;</span>);</span><br><span class="line">Debug.Log(SceneManager.sceneCount.ToString());</span><br><span class="line"></span><br><span class="line"><span class="comment">//卸载场景</span></span><br><span class="line">Scene newScene = SceneManager.CreateScene(<span class="string">&quot;newScene&quot;</span>);</span><br><span class="line">SceneManager.UnloadSceneAsync(newScene);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;场景管理类
+&#x2F;&#x2F;当前场景数
+Debug.Log(SceneManager.sceneCount.ToString());
+&#x2F;&#x2F;创建新场景
+SceneManager.CreateScene(&quot;newScene&quot;);
+Debug.Log(SceneManager.sceneCount.ToString());
+
+&#x2F;&#x2F;卸载场景
+Scene newScene &#x3D; SceneManager.CreateScene(&quot;newScene&quot;);
+SceneManager.UnloadSceneAsync(newScene);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>加载场景</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载场景</span></span><br><span class="line">SceneManager.LoadScene(<span class="string">&quot;myscene&quot;</span>, LoadSceneMode.Single);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;加载场景
+SceneManager.LoadScene(&quot;myscene&quot;, LoadSceneMode.Single);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="12-异步加载场景并获取进度"><a href="#12-异步加载场景并获取进度" class="headerlink" title="12.异步加载场景并获取进度"></a>12.异步加载场景并获取进度</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AsyncTest</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    AsyncOperation operation;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        StartCoroutine(loadScene());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">IEnumerator <span class="title">loadScene</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        operation = SceneManager.LoadSceneAsync(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> operation;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="12-异步加载场景并获取进度"><a href="#12-异步加载场景并获取进度" class="headerlink" title="12.异步加载场景并获取进度"></a>12.异步加载场景并获取进度</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class AsyncTest : MonoBehaviour
+&#123;
+    AsyncOperation operation;
+    void Start()
+    &#123;
+        StartCoroutine(loadScene());
+    &#125;
+
+    IEnumerator loadScene()
+    &#123;
+        operation &#x3D; SceneManager.LoadSceneAsync(1);
+        yield return operation;
+    &#125;
+
+    void Update()
+    &#123;
+        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>输出加载进度</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出加载进度0-0.9</span></span><br><span class="line">Debug.Log(operation.progress.ToString());</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;输出加载进度0-0.9
+Debug.Log(operation.progress.ToString());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>模拟定时器</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AsyncTest</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    AsyncOperation operation;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        StartCoroutine(loadScene());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用携程来异步加载场景</span></span><br><span class="line">    <span class="function">IEnumerator <span class="title">loadScene</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        operation = SceneManager.LoadSceneAsync(<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//加载完场景不要跳转</span></span><br><span class="line">        operation.allowSceneActivation = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">yield</span> <span class="keyword">return</span> operation;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">float</span> Timer = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//输出加载进度0-0.9</span></span><br><span class="line">        Debug.Log(operation.progress.ToString());</span><br><span class="line">        Timer += Time.deltaTime;</span><br><span class="line">        <span class="comment">//达到5秒后跳转</span></span><br><span class="line">        <span class="keyword">if</span> (Timer &gt; <span class="number">5</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            operation.allowSceneActivation = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class AsyncTest : MonoBehaviour
+&#123;
+    AsyncOperation operation;
+    void Start()
+    &#123;
+        StartCoroutine(loadScene());
+    &#125;
+
+    &#x2F;&#x2F;用携程来异步加载场景
+    IEnumerator loadScene()
+    &#123;
+        operation &#x3D; SceneManager.LoadSceneAsync(1);
+        &#x2F;&#x2F;加载完场景不要跳转
+        operation.allowSceneActivation &#x3D; false;
+        yield return operation;
+    &#125;
+    float Timer &#x3D; 0;
+    void Update()
+    &#123;
+        &#x2F;&#x2F;输出加载进度0-0.9
+        Debug.Log(operation.progress.ToString());
+        Timer +&#x3D; Time.deltaTime;
+        &#x2F;&#x2F;达到5秒后跳转
+        if (Timer &gt; 5)
+        &#123;
+            operation.allowSceneActivation &#x3D; true;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="13-Transform"><a href="#13-Transform" class="headerlink" title="13.Transform"></a>13.Transform</h2><blockquote>
 <p>tranform API</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取位置</span></span><br><span class="line">Debug.Log(transform.position);</span><br><span class="line">Debug.Log(transform.localPosition);</span><br><span class="line"><span class="comment">//获取旋转</span></span><br><span class="line">Debug.Log(transform.rotation);</span><br><span class="line">Debug.Log(transform.localRotation);</span><br><span class="line">Debug.Log(transform.eulerAngles);</span><br><span class="line">Debug.Log(transform.localEulerAngles);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取缩放</span></span><br><span class="line">Debug.Log(transform.localScale);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;获取位置
+Debug.Log(transform.position);
+Debug.Log(transform.localPosition);
+&#x2F;&#x2F;获取旋转
+Debug.Log(transform.rotation);
+Debug.Log(transform.localRotation);
+Debug.Log(transform.eulerAngles);
+Debug.Log(transform.localEulerAngles);
+
+&#x2F;&#x2F;获取缩放
+Debug.Log(transform.localScale);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>获取向量</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向量</span></span><br><span class="line">Debug.Log(transform.forward);</span><br><span class="line"></span><br><span class="line">Debug.Log(transform.right);</span><br><span class="line"></span><br><span class="line">Debug.Log(transform.up);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;向量
+Debug.Log(transform.forward);
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//时时刻刻看向0,0,0</span></span><br><span class="line">transform.LookAt(<span class="keyword">new</span> Vector3(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//旋转</span></span><br><span class="line">transform.Rotate(Vector3.up, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//绕某个物体旋转</span></span><br><span class="line">transform.RotateAround(Vector3.zero,Vector3.up, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//移动</span></span><br><span class="line">transform.Translate(Vector3.forward * <span class="number">0.1f</span>);</span><br></pre></td></tr></table></figure>
+Debug.Log(transform.right);
+
+Debug.Log(transform.up);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;时时刻刻看向0,0,0
+transform.LookAt(new Vector3(0, 0, 0));
+
+&#x2F;&#x2F;旋转
+transform.Rotate(Vector3.up, 1);
+
+&#x2F;&#x2F;绕某个物体旋转
+transform.RotateAround(Vector3.zero,Vector3.up, 5);
+
+&#x2F;&#x2F;移动
+transform.Translate(Vector3.forward * 0.1f);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>父子关系</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取父物体</span></span><br><span class="line"><span class="comment">//transform.parent.gameObject</span></span><br><span class="line"><span class="comment">//获取子物体</span></span><br><span class="line"><span class="comment">//transform.childCount</span></span><br><span class="line"><span class="comment">//解除父子关系</span></span><br><span class="line">transform.DetachChildren();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;获取父物体
+&#x2F;&#x2F;transform.parent.gameObject
+&#x2F;&#x2F;获取子物体
+&#x2F;&#x2F;transform.childCount
+&#x2F;&#x2F;解除父子关系
+transform.DetachChildren();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取子物体</span></span><br><span class="line">Transform trans = transform.Find(<span class="string">&quot;Children&quot;</span>);</span><br><span class="line">transform.GetChild(<span class="number">0</span>);</span><br><span class="line"><span class="comment">//判断一个物体是否是另一个物体的子物体</span></span><br><span class="line"><span class="built_in">bool</span> res = trans.IsChildOf(transform);</span><br><span class="line"><span class="comment">//设置父物体</span></span><br><span class="line">trans.SetParent(transform);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;获取子物体
+Transform trans &#x3D; transform.Find(&quot;Children&quot;);
+transform.GetChild(0);
+&#x2F;&#x2F;判断一个物体是否是另一个物体的子物体
+bool res &#x3D; trans.IsChildOf(transform);
+&#x2F;&#x2F;设置父物体
+trans.SetParent(transform);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="14-游戏操作方式"><a href="#14-游戏操作方式" class="headerlink" title="14.游戏操作方式"></a>14.游戏操作方式</h2><blockquote>
 <p>在update里面写</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//鼠标的点击 0左键 1右键 2滚轮</span></span><br><span class="line"><span class="comment">//点击</span></span><br><span class="line"><span class="keyword">if</span> (Input.GetMouseButtonDown(<span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//点击后</span></span><br><span class="line"><span class="keyword">if</span> (Input.GetMouseButtonUp(<span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//持续点击</span></span><br><span class="line"><span class="keyword">if</span> (Input.GetMouseButton(<span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">     Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;鼠标的点击 0左键 1右键 2滚轮
+&#x2F;&#x2F;点击
+if (Input.GetMouseButtonDown(0))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+&#x2F;&#x2F;点击后
+if (Input.GetMouseButtonUp(0))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+&#x2F;&#x2F;持续点击
+if (Input.GetMouseButton(0))
+&#123;
+     Debug.Log(&quot;&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Input.GetMouseButton(<span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Input.GetKey(KeyCode.Space))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Input.GetKeyUp(KeyCode.Space))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Space))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">if (Input.GetMouseButton(0))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+
+if (Input.GetKey(KeyCode.Space))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+if (Input.GetKeyUp(KeyCode.Space))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+if (Input.GetKeyDown(KeyCode.Space))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -254,19 +501,59 @@
 <blockquote>
 <p>垂直  Vertical</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取水平轴</span></span><br><span class="line"><span class="built_in">float</span> horizontal = Input.GetAxis(<span class="string">&quot;Horizontal&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取垂直轴</span></span><br><span class="line"><span class="built_in">float</span> vertical = Input.GetAxis(<span class="string">&quot;Vertical&quot;</span>);</span><br><span class="line">Debug.Log(horizontal + <span class="string">&quot; &quot;</span> + vertical);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;获取水平轴
+float horizontal &#x3D; Input.GetAxis(&quot;Horizontal&quot;);
+
+&#x2F;&#x2F;获取垂直轴
+float vertical &#x3D; Input.GetAxis(&quot;Vertical&quot;);
+Debug.Log(horizontal + &quot; &quot; + vertical);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>虚拟按键的使用</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//虚拟按键</span></span><br><span class="line"><span class="keyword">if</span> (Input.GetButtonDown(<span class="string">&quot;Jump&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Input.GetButtonUp(<span class="string">&quot;Jump&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (Input.GetButton(<span class="string">&quot;Jump&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;虚拟按键
+if (Input.GetButtonDown(&quot;Jump&quot;))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+if (Input.GetButtonUp(&quot;Jump&quot;))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;
+if (Input.GetButton(&quot;Jump&quot;))
+&#123;
+    Debug.Log(&quot;&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="16-手机平板触屏"><a href="#16-手机平板触屏" class="headerlink" title="16.手机平板触屏"></a>16.手机平板触屏</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开启多点触屏</span></span><br><span class="line">Input.multiTouchEnabled = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="16-手机平板触屏"><a href="#16-手机平板触屏" class="headerlink" title="16.手机平板触屏"></a>16.手机平板触屏</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;开启多点触屏
+Input.multiTouchEnabled &#x3D; true;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>判断单点触摸</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//判断单点触摸</span></span><br><span class="line"><span class="keyword">if</span> (Input.touchCount == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//触摸对象</span></span><br><span class="line">    Touch touch = Input.touches[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">//触摸位置</span></span><br><span class="line">    Debug.Log(touch.position);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(touch.phase)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> TouchPhase.Began:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> TouchPhase.Moved:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> TouchPhase.Stationary:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> TouchPhase.Ended:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> TouchPhase.Canceled:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;判断单点触摸
+if (Input.touchCount &#x3D;&#x3D; 1)
+&#123;
+    &#x2F;&#x2F;触摸对象
+    Touch touch &#x3D; Input.touches[0];
+    &#x2F;&#x2F;触摸位置
+    Debug.Log(touch.position);
+
+    switch(touch.phase)
+    &#123;
+        case TouchPhase.Began:
+            break;
+        case TouchPhase.Moved:
+            break;
+        case TouchPhase.Stationary:
+            break;
+        case TouchPhase.Ended:
+            break;
+        case TouchPhase.Canceled:
+            break;
+
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="17-灯光与烘焙"><a href="#17-灯光与烘焙" class="headerlink" title="17.灯光与烘焙"></a>17.灯光与烘焙</h2><blockquote>
 <p>定向灯光 –&gt;  从无穷远的地方照射而来09</p>
@@ -281,26 +568,133 @@
 <h2 id="19-音频"><a href="#19-音频" class="headerlink" title="19.音频"></a>19.音频</h2><blockquote>
 <p>添加Audio Source</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//AudioClip</span></span><br><span class="line"><span class="keyword">public</span> AudioClip music;</span><br><span class="line"><span class="keyword">public</span> AudioClip se;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> AudioSource player;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    player = GetComponent&lt;AudioSource&gt;();</span><br><span class="line">    <span class="comment">//设定播放的音乐音频</span></span><br><span class="line">    player.clip = music;</span><br><span class="line">    <span class="comment">//循环</span></span><br><span class="line">    player.loop = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">//音量</span></span><br><span class="line">    player.volume = <span class="number">0.5f</span>;</span><br><span class="line">    <span class="comment">//播放</span></span><br><span class="line">    player.Play();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update is called once per frame</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Escape))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (player.isPlaying)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//暂停播放</span></span><br><span class="line">            player.Pause();</span><br><span class="line">            <span class="comment">//停止播放</span></span><br><span class="line">            <span class="comment">/*player.Stop();*/</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//继续播放</span></span><br><span class="line">            player.UnPause();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;AudioClip
+public AudioClip music;
+public AudioClip se;
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//播放一声，常用于播放音效</span></span><br><span class="line">player.PlayOneShot(se);</span><br></pre></td></tr></table></figure>
+public AudioSource player;
+void Start()
+&#123;
+    player &#x3D; GetComponent&lt;AudioSource&gt;();
+    &#x2F;&#x2F;设定播放的音乐音频
+    player.clip &#x3D; music;
+    &#x2F;&#x2F;循环
+    player.loop &#x3D; true;
+    &#x2F;&#x2F;音量
+    player.volume &#x3D; 0.5f;
+    &#x2F;&#x2F;播放
+    player.Play();
+&#125;
+
+&#x2F;&#x2F; Update is called once per frame
+void Update()
+&#123;
+    if (Input.GetKeyDown(KeyCode.Escape))
+    &#123;
+        if (player.isPlaying)
+        &#123;
+            &#x2F;&#x2F;暂停播放
+            player.Pause();
+            &#x2F;&#x2F;停止播放
+            &#x2F;*player.Stop();*&#x2F;
+        &#125;
+        else
+        &#123;
+            &#x2F;&#x2F;继续播放
+            player.UnPause();
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;播放一声，常用于播放音效
+player.PlayOneShot(se);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="20-视频播放"><a href="#20-视频播放" class="headerlink" title="20.视频播放"></a>20.视频播放</h2><blockquote>
 <p>Video Player</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine.Video;</span><br><span class="line">    <span class="keyword">private</span> VideoPlayer mPlayer; </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        mPlayer = GetComponent&lt;VideoPlayer&gt;();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using UnityEngine.Video;
+    private VideoPlayer mPlayer; 
+    void Start()
+    &#123;
+        mPlayer &#x3D; GetComponent&lt;VideoPlayer&gt;();
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="21-角色控制"><a href="#21-角色控制" class="headerlink" title="21.角色控制"></a>21.角色控制</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControll</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> CharacterController characterController;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        characterController = GetComponent&lt;CharacterController&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//水平轴</span></span><br><span class="line">        <span class="built_in">float</span> horizontal = Input.GetAxis(<span class="string">&quot;Horizontal&quot;</span>);</span><br><span class="line">        <span class="comment">//垂直轴</span></span><br><span class="line">        <span class="built_in">float</span> vertical = Input.GetAxis(<span class="string">&quot;Vertical&quot;</span>);</span><br><span class="line">        <span class="comment">//创建一个方向向量</span></span><br><span class="line">        Vector3 dir = <span class="keyword">new</span> Vector3(horizontal,<span class="number">0</span>,vertical);</span><br><span class="line">        characterController.SimpleMove(dir);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="21-角色控制"><a href="#21-角色控制" class="headerlink" title="21.角色控制"></a>21.角色控制</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class PlayerControll : MonoBehaviour
+&#123;
+    private CharacterController characterController;
+
+    void Start()
+    &#123;
+        characterController &#x3D; GetComponent&lt;CharacterController&gt;();
+    &#125;
+
+    void Update()
+    &#123;
+        &#x2F;&#x2F;水平轴
+        float horizontal &#x3D; Input.GetAxis(&quot;Horizontal&quot;);
+        &#x2F;&#x2F;垂直轴
+        float vertical &#x3D; Input.GetAxis(&quot;Vertical&quot;);
+        &#x2F;&#x2F;创建一个方向向量
+        Vector3 dir &#x3D; new Vector3(horizontal,0,vertical);
+        characterController.SimpleMove(dir);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="22-物理系统"><a href="#22-物理系统" class="headerlink" title="22.物理系统"></a>22.物理系统</h2><blockquote>
 <p>碰撞的产生与监听</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayerControll</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> GameObject Prefab;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//监听发生碰撞</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionEnter</span>(<span class="params">Collision collision</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//创建发生碰撞后产生的物体</span></span><br><span class="line">        Instantiate(Prefab,transform.position,Quaternion.identity);</span><br><span class="line">        <span class="comment">//销毁自身</span></span><br><span class="line">        Destroy(gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//持续碰撞</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionStay</span>(<span class="params">Collision collision</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//结束碰撞</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionExit</span>(<span class="params">Collision collision</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class PlayerControll : MonoBehaviour
+&#123;
+    private GameObject Prefab;
+    void Start()
+    &#123;
+        
+    &#125;
+
+    void Update()
+    &#123;
+
+    &#125;
+
+    &#x2F;&#x2F;监听发生碰撞
+    private void OnCollisionEnter(Collision collision)
+    &#123;
+        &#x2F;&#x2F;创建发生碰撞后产生的物体
+        Instantiate(Prefab,transform.position,Quaternion.identity);
+        &#x2F;&#x2F;销毁自身
+        Destroy(gameObject);
+    &#125;
+    &#x2F;&#x2F;持续碰撞
+    private void OnCollisionStay(Collision collision)
+    &#123;
+        
+    &#125;
+    &#x2F;&#x2F;结束碰撞
+    private void OnCollisionExit(Collision collision)
+    &#123;
+        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>触发</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerEnter</span>(<span class="params">Collider other</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    GameObject go = GameObject.Find(<span class="string">&quot;Cube&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (go != <span class="literal">null</span>) &#123;</span><br><span class="line">        go.SetActive(<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerStay</span>(<span class="params">Collider other</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerExit</span>(<span class="params">Collider other</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void OnTriggerEnter(Collider other)
+&#123;
+    GameObject go &#x3D; GameObject.Find(&quot;Cube&quot;);
+    if (go !&#x3D; null) &#123;
+        go.SetActive(false);
+    &#125;
+&#125;
+private void OnTriggerStay(Collider other)
+&#123;
+
+&#125;
+
+private void OnTriggerExit(Collider other)
+&#123;
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>弹簧  Spring Joint</p>
@@ -310,14 +704,37 @@
 <p>物理材质的使用</p>
 <p>静态摩擦和动态摩擦的使用</p>
 </blockquote>
-<h2 id="24-射线检测"><a href="#24-射线检测" class="headerlink" title="24.射线检测"></a>24.射线检测</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式1</span></span><br><span class="line">Ray ray = <span class="keyword">new</span> Ray(Vector3.zero,Vector3.up);</span><br><span class="line"><span class="comment">//方式1</span></span><br><span class="line">ray = Camera.main.ScreenPointToRay(Input.mousePosition);</span><br></pre></td></tr></table></figure>
+<h2 id="24-射线检测"><a href="#24-射线检测" class="headerlink" title="24.射线检测"></a>24.射线检测</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;方式1
+Ray ray &#x3D; new Ray(Vector3.zero,Vector3.up);
+&#x2F;&#x2F;方式1
+ray &#x3D; Camera.main.ScreenPointToRay(Input.mousePosition);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Input.GetMouseButtonDown(<span class="number">0</span>))</span><br><span class="line">&#123;</span><br><span class="line">    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);</span><br><span class="line">    <span class="comment">//声明一个碰撞信息类</span></span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="built_in">bool</span> res = Physics.Raycast(ray, <span class="keyword">out</span> hit);</span><br><span class="line">    <span class="keyword">if</span> (res)</span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(hit.point);</span><br><span class="line">        <span class="comment">//移动</span></span><br><span class="line">        transform.position = hit.point;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//多检测</span></span><br><span class="line">    RaycastHit[] hits = Physics.RaycastAll(ray, <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">if (Input.GetMouseButtonDown(0))
+&#123;
+    Ray ray &#x3D; Camera.main.ScreenPointToRay(Input.mousePosition);
+    &#x2F;&#x2F;声明一个碰撞信息类
+    RaycastHit hit;
+    bool res &#x3D; Physics.Raycast(ray, out hit);
+    if (res)
+    &#123;
+        Debug.Log(hit.point);
+        &#x2F;&#x2F;移动
+        transform.position &#x3D; hit.point;
+    &#125;
+    &#x2F;&#x2F;多检测
+    RaycastHit[] hits &#x3D; Physics.RaycastAll(ray, 100);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="25-彩色尾条和拖尾"><a href="#25-彩色尾条和拖尾" class="headerlink" title="25.彩色尾条和拖尾"></a>25.彩色尾条和拖尾</h2><blockquote>
 <p>Line Render</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取线段渲染器</span></span><br><span class="line">LineRenderer lineRenderer = GetComponent&lt;LineRenderer&gt;();</span><br><span class="line"><span class="comment">//设置三个点</span></span><br><span class="line">lineRenderer.positionCount = <span class="number">3</span>;</span><br><span class="line">lineRenderer.SetPosition(<span class="number">0</span>, Vector3.zero);</span><br><span class="line">lineRenderer.SetPosition(<span class="number">0</span>, Vector3.one);</span><br><span class="line">lineRenderer.SetPosition(<span class="number">0</span>, Vector3.forward);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;获取线段渲染器
+LineRenderer lineRenderer &#x3D; GetComponent&lt;LineRenderer&gt;();
+&#x2F;&#x2F;设置三个点
+lineRenderer.positionCount &#x3D; 3;
+lineRenderer.SetPosition(0, Vector3.zero);
+lineRenderer.SetPosition(0, Vector3.one);
+lineRenderer.SetPosition(0, Vector3.forward);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>Trail Render</p>
@@ -325,17 +742,42 @@
 <h2 id="26-动画组件"><a href="#26-动画组件" class="headerlink" title="26.动画组件"></a>26.动画组件</h2><blockquote>
 <p>animation 旧组件</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Input.GetMouseButtonDown(<span class="number">0</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GetComponent&lt;Animation&gt;().Play(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void Update()
+&#123;
+    if (Input.GetMouseButtonDown(0))
+    &#123;
+        GetComponent&lt;Animation&gt;().Play(&quot;name&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>animatior 新组件</p>
 <p>新建动画器控制器</p>
 </blockquote>
-<h2 id="27-模型动作"><a href="#27-模型动作" class="headerlink" title="27.模型动作"></a>27.模型动作</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Input.GetKeyDown(KeyCode.F))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//触发触发器triggername</span></span><br><span class="line">    GetComponent&lt;Animator&gt;().SetTrigger(<span class="string">&quot;triggername&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="27-模型动作"><a href="#27-模型动作" class="headerlink" title="27.模型动作"></a>27.模型动作</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">if (Input.GetKeyDown(KeyCode.F))
+&#123;
+    &#x2F;&#x2F;触发触发器triggername
+    GetComponent&lt;Animator&gt;().SetTrigger(&quot;triggername&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span> horizontal = Input.GetAxis(<span class="string">&quot;Horizontal&quot;</span>);</span><br><span class="line"><span class="built_in">float</span> vertical = Input.GetAxis(<span class="string">&quot;VErtical&quot;</span>);</span><br><span class="line"></span><br><span class="line">Vector3 dir = <span class="keyword">new</span> Vector3 (horizontal,<span class="number">0</span>, vertical);</span><br><span class="line"><span class="keyword">if</span> (dir != Vector3.zero)</span><br><span class="line">&#123;</span><br><span class="line">    transform.rotation = Quaternion.LookRotation(dir);</span><br><span class="line">    transform.Translate (dir * <span class="number">1.5f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">float horizontal &#x3D; Input.GetAxis(&quot;Horizontal&quot;);
+float vertical &#x3D; Input.GetAxis(&quot;VErtical&quot;);
 
-<h2 id="28-帧事件的使用"><a href="#28-帧事件的使用" class="headerlink" title="28.帧事件的使用"></a>28.帧事件的使用</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;test1&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(<span class="string">&quot;test2&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+Vector3 dir &#x3D; new Vector3 (horizontal,0, vertical);
+if (dir !&#x3D; Vector3.zero)
+&#123;
+    transform.rotation &#x3D; Quaternion.LookRotation(dir);
+    transform.Translate (dir * 1.5f);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="28-帧事件的使用"><a href="#28-帧事件的使用" class="headerlink" title="28.帧事件的使用"></a>28.帧事件的使用</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void test1()
+&#123;
+    Debug.Log(&quot;test1&quot;);
+&#125;
+void test2()
+&#123;
+    Debug.Log(&quot;test2&quot;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>在脚落地时打上帧事件，播放踩地的声音</p>
@@ -347,7 +789,17 @@
 <h2 id="30-反向动力学"><a href="#30-反向动力学" class="headerlink" title="30.反向动力学"></a>30.反向动力学</h2><blockquote>
 <p>反向运动学 (IK) 是一种设置动画的方法，它翻转链操纵的方向。</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//IK方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnAnimatorIK</span>(<span class="params"><span class="built_in">int</span> layerIndex</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//人物头部IK</span></span><br><span class="line">    animator.SetLookAtWeight(<span class="number">1</span>);</span><br><span class="line">    animator.SetLookAtPosition(target.position);</span><br><span class="line">    <span class="comment">//设置右手IK</span></span><br><span class="line">    animator.SetIKPositionWeight(AvatarIKGoal.RightHand, <span class="number">1</span>);</span><br><span class="line">    <span class="comment">//旋转</span></span><br><span class="line">    animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;IK方法
+private void OnAnimatorIK(int layerIndex)
+&#123;
+    &#x2F;&#x2F;人物头部IK
+    animator.SetLookAtWeight(1);
+    animator.SetLookAtPosition(target.position);
+    &#x2F;&#x2F;设置右手IK
+    animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+    &#x2F;&#x2F;旋转
+    animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="31-导航网格"><a href="#31-导航网格" class="headerlink" title="31.导航网格"></a>31.导航网格</h2><blockquote>
 <p>新版使用NavMeshSurface组件来进行</p>
@@ -355,7 +807,29 @@
 <blockquote>
 <p>Nav Mesh Agent 导航代理组件（用于角色）</p>
 </blockquote>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> NavMeshAgent agent;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    agent = GetComponent&lt;NavMeshAgent&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update is called once per frame</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Input.GetMouseButtonDown(<span class="number">0</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//获取位置</span></span><br><span class="line">        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);</span><br><span class="line">        <span class="comment">//射线信息类</span></span><br><span class="line">        RaycastHit hit;</span><br><span class="line">        <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit))</span><br><span class="line">        &#123;</span><br><span class="line">            Vector3 point = hit.point;</span><br><span class="line">            <span class="comment">//该点为导航目标点</span></span><br><span class="line">            agent.SetDestination(point);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private NavMeshAgent agent;
+void Start()
+&#123;
+    agent &#x3D; GetComponent&lt;NavMeshAgent&gt;();
+&#125;
+
+&#x2F;&#x2F; Update is called once per frame
+void Update()
+&#123;
+    if (Input.GetMouseButtonDown(0))
+    &#123;
+        &#x2F;&#x2F;获取位置
+        Ray ray &#x3D; Camera.main.ScreenPointToRay(Input.mousePosition);
+        &#x2F;&#x2F;射线信息类
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        &#123;
+            Vector3 point &#x3D; hit.point;
+            &#x2F;&#x2F;该点为导航目标点
+            agent.SetDestination(point);
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>在两点之间传送</p>
@@ -371,7 +845,16 @@
 <blockquote>
 <p>绑定事件先将脚本绑定到画布，然后再按钮的鼠标单击事件中绑定脚本的鼠标单击事件方法（Button Click）</p>
 </blockquote>
-<h2 id="34-下拉选项Dropdown"><a href="#34-下拉选项Dropdown" class="headerlink" title="34.下拉选项Dropdown"></a>34.下拉选项Dropdown</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//获取下拉组件</span></span><br><span class="line">    Dropdown dropdown = GetComponent&lt;Dropdown&gt;();</span><br><span class="line">    <span class="comment">//获取组件的选项</span></span><br><span class="line">    List&lt;Dropdown.OptionData&gt; options = dropdown.options;</span><br><span class="line">    <span class="comment">//修改选项</span></span><br><span class="line">    options.Add(<span class="keyword">new</span> Dropdown.OptionData(<span class="string">&quot;new selection&quot;</span>));</span><br><span class="line">    dropdown.options = options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="34-下拉选项Dropdown"><a href="#34-下拉选项Dropdown" class="headerlink" title="34.下拉选项Dropdown"></a>34.下拉选项Dropdown</h2><pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void Start()
+&#123;
+    &#x2F;&#x2F;获取下拉组件
+    Dropdown dropdown &#x3D; GetComponent&lt;Dropdown&gt;();
+    &#x2F;&#x2F;获取组件的选项
+    List&lt;Dropdown.OptionData&gt; options &#x3D; dropdown.options;
+    &#x2F;&#x2F;修改选项
+    options.Add(new Dropdown.OptionData(&quot;new selection&quot;));
+    dropdown.options &#x3D; options
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="35-常用的UI组件"><a href="#35-常用的UI组件" class="headerlink" title="35.常用的UI组件"></a>35.常用的UI组件</h2><blockquote>
 <p>Vertical Latout Gropu 可以用于多个元素之间控制相同的距离和宽度</p>

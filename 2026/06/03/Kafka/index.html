@@ -129,16 +129,88 @@
 <td>更新主题默认系统配置，如消息最大保存时长、单条消息最大大小等</td>
 </tr>
 </tbody></table>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 创建topic</span><br><span class="line">kafka-topics.bat --create --replication-factor 1 --partitions 3 </span><br><span class="line">--topic rc-topic --bootstrap-server localhost:9092</span><br><span class="line">&gt; Created topic rc-topic.</span><br><span class="line"></span><br><span class="line"># 查看topic列表</span><br><span class="line">kafka-topics.bat --list --bootstrap-server localhost:9092</span><br><span class="line">&gt; rc-topic</span><br><span class="line"></span><br><span class="line"># 查看topic信息</span><br><span class="line">kafka-topics.bat --describe --topic rc-topic --bootstrap-server localhost:9092</span><br><span class="line">&gt; Topic: rc-topic TopicId: bFh2j7N0S7Gz7LxuhYSk4Q PartitionCount: 3       ReplicationFactor: 1    Configs:</span><br><span class="line">        Topic: rc-topic Partition: 0    Leader: 0       Replicas: 0     Isr: 0</span><br><span class="line">        Topic: rc-topic Partition: 1    Leader: 0       Replicas: 0     Isr: 0</span><br><span class="line">        Topic: rc-topic Partition: 2    Leader: 0       Replicas: 0     Isr: 0</span><br><span class="line"></span><br><span class="line"># 生产者发送消息</span><br><span class="line">kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic</span><br><span class="line"></span><br><span class="line"># 消费者接收消息</span><br><span class="line">kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># 创建topic
+kafka-topics.bat --create --replication-factor 1 --partitions 3 
+--topic rc-topic --bootstrap-server localhost:9092
+&gt; Created topic rc-topic.
+
+# 查看topic列表
+kafka-topics.bat --list --bootstrap-server localhost:9092
+&gt; rc-topic
+
+# 查看topic信息
+kafka-topics.bat --describe --topic rc-topic --bootstrap-server localhost:9092
+&gt; Topic: rc-topic TopicId: bFh2j7N0S7Gz7LxuhYSk4Q PartitionCount: 3       ReplicationFactor: 1    Configs:
+        Topic: rc-topic Partition: 0    Leader: 0       Replicas: 0     Isr: 0
+        Topic: rc-topic Partition: 1    Leader: 0       Replicas: 0     Isr: 0
+        Topic: rc-topic Partition: 2    Leader: 0       Replicas: 0     Isr: 0
+
+# 生产者发送消息
+kafka-console-producer.bat --broker-list localhost:9092 --topic test-topic
+
+# 消费者接收消息
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test-topic --from-beginning<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="四、Java操作Kafka"><a href="#四、Java操作Kafka" class="headerlink" title="四、Java操作Kafka"></a>四、Java操作Kafka</h2><p>1.引入依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.kafka&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;spring-kafka&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.kafka&lt;&#x2F;groupId&gt;
+  &lt;artifactId&gt;spring-kafka&lt;&#x2F;artifactId&gt;
+&lt;&#x2F;dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>2.发送消息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 1. 配置生产者参数</span><br><span class="line">Properties props = new Properties();</span><br><span class="line">props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, &quot;localhost:9092&quot;);</span><br><span class="line">props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());</span><br><span class="line">props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());</span><br><span class="line"></span><br><span class="line">// 2. 创建生产者对象</span><br><span class="line">KafkaProducer&lt;String, String&gt; producer = new KafkaProducer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">// 3. 构建消息（topic名称，消息内容）</span><br><span class="line">ProducerRecord&lt;String, String&gt; record = new ProducerRecord&lt;&gt;(</span><br><span class="line">        &quot;rc-topic&quot;,  // 主题名</span><br><span class="line">        &quot;csndm！&quot;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 4. 发送消息</span><br><span class="line">producer.send(record);</span><br><span class="line"></span><br><span class="line">// 5. 刷新并关闭</span><br><span class="line">producer.flush();</span><br><span class="line">producer.close();</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;消息发送成功！&quot;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 1. 配置生产者参数
+Properties props &#x3D; new Properties();
+props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, &quot;localhost:9092&quot;);
+props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+
+&#x2F;&#x2F; 2. 创建生产者对象
+KafkaProducer&lt;String, String&gt; producer &#x3D; new KafkaProducer&lt;&gt;(props);
+
+&#x2F;&#x2F; 3. 构建消息（topic名称，消息内容）
+ProducerRecord&lt;String, String&gt; record &#x3D; new ProducerRecord&lt;&gt;(
+        &quot;rc-topic&quot;,  &#x2F;&#x2F; 主题名
+        &quot;csndm！&quot;
+);
+
+&#x2F;&#x2F; 4. 发送消息
+producer.send(record);
+
+&#x2F;&#x2F; 5. 刷新并关闭
+producer.flush();
+producer.close();
+
+System.out.println(&quot;消息发送成功！&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>3.上传消息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 1. 配置消费者参数</span><br><span class="line">Properties props = new Properties();</span><br><span class="line">props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, &quot;localhost:9092&quot;);</span><br><span class="line">// 消费者组id（随便写，不重复即可）</span><br><span class="line">props.put(ConsumerConfig.GROUP_ID_CONFIG, &quot;rc-group&quot;);</span><br><span class="line">// 反序列化</span><br><span class="line">props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());</span><br><span class="line">props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());</span><br><span class="line">// 从头开始消费（第一次启动时生效）</span><br><span class="line">props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, &quot;earliest&quot;);</span><br><span class="line"></span><br><span class="line">// 2. 创建消费者对象</span><br><span class="line">KafkaConsumer&lt;String, String&gt; consumer = new KafkaConsumer&lt;&gt;(props);</span><br><span class="line"></span><br><span class="line">// 3. 订阅主题（和生产者主题一致）</span><br><span class="line">consumer.subscribe(Collections.singletonList(&quot;rc-topic&quot;));</span><br><span class="line">System.out.println(&quot;消费者已启动，等待接收消息...&quot;);</span><br><span class="line"></span><br><span class="line">// 4. 循环拉取消息</span><br><span class="line">while (true) &#123;</span><br><span class="line">    // 每隔100ms拉取一次消息</span><br><span class="line">    ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));</span><br><span class="line"></span><br><span class="line">    // 处理收到的消息</span><br><span class="line">    for (ConsumerRecord&lt;String, String&gt; record : records) &#123;</span><br><span class="line">        System.out.println(&quot;收到消息：&quot; + record.value());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 1. 配置消费者参数
+Properties props &#x3D; new Properties();
+props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, &quot;localhost:9092&quot;);
+&#x2F;&#x2F; 消费者组id（随便写，不重复即可）
+props.put(ConsumerConfig.GROUP_ID_CONFIG, &quot;rc-group&quot;);
+&#x2F;&#x2F; 反序列化
+props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+&#x2F;&#x2F; 从头开始消费（第一次启动时生效）
+props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, &quot;earliest&quot;);
+
+&#x2F;&#x2F; 2. 创建消费者对象
+KafkaConsumer&lt;String, String&gt; consumer &#x3D; new KafkaConsumer&lt;&gt;(props);
+
+&#x2F;&#x2F; 3. 订阅主题（和生产者主题一致）
+consumer.subscribe(Collections.singletonList(&quot;rc-topic&quot;));
+System.out.println(&quot;消费者已启动，等待接收消息...&quot;);
+
+&#x2F;&#x2F; 4. 循环拉取消息
+while (true) &#123;
+    &#x2F;&#x2F; 每隔100ms拉取一次消息
+    ConsumerRecords&lt;String, String&gt; records &#x3D; consumer.poll(Duration.ofMillis(100));
+
+    &#x2F;&#x2F; 处理收到的消息
+    for (ConsumerRecord&lt;String, String&gt; record : records) &#123;
+        System.out.println(&quot;收到消息：&quot; + record.value());
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
         </article>
         <section class="post-near">
             <ul>

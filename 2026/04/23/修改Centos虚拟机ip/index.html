@@ -62,12 +62,15 @@
         <article class="post-content">
           
             <p>Linux 是一种自由和开放源码的类 UNIX 操作系统。Linux 英文解释为 Linux is not Unix。Linux 遵循 GNU 通用公共许可证（GPL），任何个人和机构都可以自由地使用 Linux 的所有底层源代码，也可以自由地修改和再发布。由于 Linux 是自由软件，任何人都可以创建一个符合自己需求的 Linux 发行版。</p>
-<h2 id="一、先查看网卡名"><a href="#一、先查看网卡名" class="headerlink" title="一、先查看网卡名"></a>一、先查看网卡名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">nmcli device status</span><br></pre></td></tr></table></figure>
+<h2 id="一、先查看网卡名"><a href="#一、先查看网卡名" class="headerlink" title="一、先查看网卡名"></a>一、先查看网卡名</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> addr
+<span class="token comment"># 或</span>
+nmcli device status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <img src="../../../../images/224225.png" alt="查看网卡名" title="查看网卡名"/>
 
 <h2 id="二、编辑配置文件（永久静态-IP，推荐）"><a href="#二、编辑配置文件（永久静态-IP，推荐）" class="headerlink" title="二、编辑配置文件（永久静态 IP，推荐）"></a>二、编辑配置文件（永久静态 IP，推荐）</h2><ol>
-<li>进入配置目录<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/sysconfig/network-scripts/</span><br><span class="line"><span class="built_in">ls</span> ifcfg-*</span><br></pre></td></tr></table></figure></li>
+<li>进入配置目录<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc/sysconfig/network-scripts/
+<span class="token function">ls</span> ifcfg-*<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <img src="../../../../images/224226.png" alt="进入配置目录" title="进入配置目录"/>
 
@@ -78,7 +81,13 @@
 </blockquote>
 </li>
 <li><p>修改 &#x2F; 添加如下内容（静态 IP）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=static    # dhcp 改为 static</span><br><span class="line">ONBOOT=yes          # 开机自启</span><br><span class="line">IPADDR=192.168.1.100    # 你要设的IP</span><br><span class="line">NETMASK=255.255.255.0   # 子网掩码（或 PREFIX=24）</span><br><span class="line">GATEWAY=192.168.1.1     # 网关</span><br><span class="line">DNS1=114.114.114.114    # DNS</span><br><span class="line">DNS2=8.8.8.8</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">BOOTPROTO&#x3D;static    # dhcp 改为 static
+ONBOOT&#x3D;yes          # 开机自启
+IPADDR&#x3D;192.168.1.100    # 你要设的IP
+NETMASK&#x3D;255.255.255.0   # 子网掩码（或 PREFIX&#x3D;24）
+GATEWAY&#x3D;192.168.1.1     # 网关
+DNS1&#x3D;114.114.114.114    # DNS
+DNS2&#x3D;8.8.8.8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>重启网络（CentOS 7）</p>
 </li>
@@ -89,7 +98,9 @@
 <ol start="5">
 <li>验证</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br><span class="line">ping 网关</span><br><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> addr
+<span class="token function">ping</span> 网关
+<span class="token function">ping</span> www.baidu.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
         </article>
         <section class="post-near">
             <ul>

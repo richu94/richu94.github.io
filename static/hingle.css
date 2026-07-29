@@ -920,18 +920,33 @@ footer .sub-footer p{ font-size: .875em }
 }
 
 /* - Prism 代码块样式 */
-.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata{ color: #7D8B99 }
-.token.punctuation{ color: #5F6364 }
-.token.property, .token.tag, .token.boolean, .token.number, .token.function-name, .token.constant, .token.symbol, .token.deleted{ color: #c92c2c }
-.token.selector, .token.attr-name, .token.string, .token.char, .token.function, .token.builtin, .token.inserted{ color: #2f9c0a }
+pre[class*="language-"]{
+    color: #d8dee9;
+    border-color: #30363d;
+    background: #161b22;
+    overflow-x: auto;
+    tab-size: 2;
+}
 
-.token.operator, .token.entity, .token.url, .token.variable{ color: #a67f59 }
-.token.atrule, .token.attr-value, .token.keyword, .token.class-name{ color: #1990b8 }
-.token.regex, .token.important{ color: #e90 }
+pre[class*="language-"] code{
+    color: inherit;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    text-shadow: none;
+    white-space: pre;
+}
+
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata{ color: #8b949e }
+.token.punctuation{ color: #c9d1d9 }
+.token.property, .token.tag, .token.boolean, .token.number, .token.function-name, .token.constant, .token.symbol, .token.deleted{ color: #ff7b72 }
+.token.selector, .token.attr-name, .token.string, .token.char, .token.function, .token.builtin, .token.inserted{ color: #a5d6ff }
+
+.token.operator, .token.entity, .token.url, .token.variable{ color: #79c0ff }
+.token.atrule, .token.attr-value, .token.keyword, .token.class-name{ color: #d2a8ff }
+.token.regex, .token.important{ color: #ffa657 }
 
 .language-css .token.string, .style .token.string {
-    color: #a67f59;
-    background: rgba(255, 255, 255, 0.5);
+    color: #a5d6ff;
+    background: transparent;
 }
 
 .token.bold { font-weight: bold }
@@ -945,6 +960,10 @@ pre[class*="language-"].line-numbers {
     position: relative;
     padding-left: 3.8em;
     counter-reset: linenumber;
+}
+
+pre[class*="language-"] .line-numbers-rows{
+    border-color: #484f58;
 }
 
 .line-numbers .line-numbers-rows {

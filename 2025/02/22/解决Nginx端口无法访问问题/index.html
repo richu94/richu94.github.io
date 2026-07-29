@@ -78,9 +78,9 @@
 <h2 id="3-开启"><a href="#3-开启" class="headerlink" title="3.开启"></a>3.开启</h2><blockquote>
 <p>netstat -na | grep :8081	确保没有开启8081端口</p>
 </blockquote>
-<h2 id="4-开放指定端口"><a href="#4-开放指定端口" class="headerlink" title="4.开放指定端口"></a>4.开放指定端口</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=8081/tcp --permanent</span><br></pre></td></tr></table></figure>
+<h2 id="4-开放指定端口"><a href="#4-开放指定端口" class="headerlink" title="4.开放指定端口"></a>4.开放指定端口</h2><pre class="line-numbers language-none"><code class="language-none">firewall-cmd --zone&#x3D;public --add-port&#x3D;8081&#x2F;tcp --permanent<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="5-重启防火墙"><a href="#5-重启防火墙" class="headerlink" title="5.重启防火墙"></a>5.重启防火墙</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h2 id="5-重启防火墙"><a href="#5-重启防火墙" class="headerlink" title="5.重启防火墙"></a>5.重启防火墙</h2><pre class="line-numbers language-none"><code class="language-none">firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="6-再次查看端口"><a href="#6-再次查看端口" class="headerlink" title="6.再次查看端口"></a>6.再次查看端口</h2><blockquote>
 <p>netstat -ntlp </p>

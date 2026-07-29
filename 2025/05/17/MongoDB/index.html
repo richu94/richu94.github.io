@@ -242,54 +242,77 @@
 <p>配置文件启动</p>
 <p>新建config文件夹 conf，在conf文件夹创建mongod.conf文件</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">storage:</span><br><span class="line">	dbPath:D:\mongodb-win32-x86_64-windows-8.0.0\data\db</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">storage:
+  dbPath:D:\mongodb-win32-x86_64-windows-8.0.0\data\db<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">storage:</span><br><span class="line">    dbPath: D:\mongodb-win32-x86_64-windows-8.0.0\data\db</span><br><span class="line">    port: 27017</span><br><span class="line">    bindIp: 127.0.0.1</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">storage:
+    dbPath: D:\mongodb-win32-x86_64-windows-8.0.0\data\db
+    port: 27017
+    bindIp: 127.0.0.1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="2-linux"><a href="#2-linux" class="headerlink" title="2.linux"></a>2.linux</h4><h5 id="上传-MongoDB-安装包"><a href="#上传-MongoDB-安装包" class="headerlink" title="上传 MongoDB 安装包"></a>上传 MongoDB 安装包</h5><p>将从官网下载好的 <code>mongodb-linux-x86_64-4.0.0.tgz</code> 上传到要安装的服务器的目录中<br>建议目录为：<code>/data/lib/mongodb</code></p>
 <h5 id="解压-MongoDB-安装包"><a href="#解压-MongoDB-安装包" class="headerlink" title="解压 MongoDB 安装包"></a>解压 MongoDB 安装包</h5><p>解压 <code>mongodb-linux-x86_64-4.0.0.tgz</code> 文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/lib/mongodb</span><br><span class="line">tar -zxvf mongodb-linux-x86_64-4.0.0.tgz</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /data/lib/mongodb
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> mongodb-linux-x86_64-4.0.0.tgz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h5 id="创建-MongoDB-必要目录"><a href="#创建-MongoDB-必要目录" class="headerlink" title="创建 MongoDB 必要目录"></a>创建 MongoDB 必要目录</h5><p>在 <code>/usr/local</code> 目录中创建 <code>mongodb</code> 文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local</span><br><span class="line"><span class="built_in">mkdir</span> mongodb</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local
+<span class="token function">mkdir</span> mongodb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>在 <code>mongodb</code> 下创建 <code>data</code> 和 <code>logs</code> 目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> data</span><br><span class="line"><span class="built_in">mkdir</span> logs</span><br><span class="line"><span class="built_in">touch</span> /usr/local/mongodb/logs/mongodb.log</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> data
+<span class="token function">mkdir</span> logs
+<span class="token function">touch</span> /usr/local/mongodb/logs/mongodb.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="移动-MongoDB-安装目录"><a href="#移动-MongoDB-安装目录" class="headerlink" title="移动 MongoDB 安装目录"></a>移动 MongoDB 安装目录</h5><p>将解压后的 <code>mongodb-linux-x86_64-4.0.0</code> 中的文件全部移动到 <code>/usr/local/mongodb</code> 中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> mongodb-linux-x86_64-4.0.0/* /usr/local/mongodb</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> mongodb-linux-x86_64-4.0.0/* /usr/local/mongodb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="设置-MongoDB-环境变量"><a href="#设置-MongoDB-环境变量" class="headerlink" title="设置 MongoDB 环境变量"></a>设置 MongoDB 环境变量</h5><p>打开环境变量文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>在文件中增加以下配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> MONGODB_HOME=/usr/local/mongodb</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$MONGODB_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">MONGODB_HOME</span><span class="token operator">=</span>/usr/local/mongodb
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token variable">$MONGODB_HOME</span>/bin:<span class="token environment constant">$PATH</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>保存后退出。<br>使新增的环境变量立即生效：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h5 id="添加-MongoDB-配置文件"><a href="#添加-MongoDB-配置文件" class="headerlink" title="添加 MongoDB 配置文件"></a>添加 MongoDB 配置文件</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mongodb.conf</span><br></pre></td></tr></table></figure>
+<h5 id="添加-MongoDB-配置文件"><a href="#添加-MongoDB-配置文件" class="headerlink" title="添加 MongoDB 配置文件"></a>添加 MongoDB 配置文件</h5><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>添加一下常用配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#指定数据库路径</span></span><br><span class="line">dbpath=/usr/local/mongodb/data</span><br><span class="line"><span class="comment">#指定MongoDB日志文件</span></span><br><span class="line">logpath=/usr/local/mongodb/logs/mongodb.log</span><br><span class="line"><span class="comment"># 使用追加的方式写日志</span></span><br><span class="line">logappend=<span class="literal">true</span></span><br><span class="line"><span class="comment">#端口号</span></span><br><span class="line">port=27017 </span><br><span class="line"><span class="comment">#方便外网访问</span></span><br><span class="line">bind_ip=0.0.0.0</span><br><span class="line">fork=<span class="literal">true</span> <span class="comment"># 以守护进程的方式运行MongoDB，创建服务器进程</span></span><br><span class="line"><span class="comment">#auth=true #启用用户验证</span></span><br><span class="line"><span class="comment">#bind_ip=0.0.0.0 #绑定服务IP，若绑定127.0.0.1，则只能本机访问，不指定则默认本地所有IP</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#指定数据库路径</span>
+<span class="token assign-left variable">dbpath</span><span class="token operator">=</span>/usr/local/mongodb/data
+<span class="token comment">#指定MongoDB日志文件</span>
+<span class="token assign-left variable">logpath</span><span class="token operator">=</span>/usr/local/mongodb/logs/mongodb.log
+<span class="token comment"># 使用追加的方式写日志</span>
+<span class="token assign-left variable">logappend</span><span class="token operator">=</span>true
+<span class="token comment">#端口号</span>
+<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">27017</span> 
+<span class="token comment">#方便外网访问</span>
+<span class="token assign-left variable">bind_ip</span><span class="token operator">=</span><span class="token number">0.0</span>.0.0
+<span class="token assign-left variable">fork</span><span class="token operator">=</span>true <span class="token comment"># 以守护进程的方式运行MongoDB，创建服务器进程</span>
+<span class="token comment">#auth=true #启用用户验证</span>
+<span class="token comment">#bind_ip=0.0.0.0 #绑定服务IP，若绑定127.0.0.1，则只能本机访问，不指定则默认本地所有IP</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="启动和关闭-MongoDB"><a href="#启动和关闭-MongoDB" class="headerlink" title="启动和关闭 MongoDB"></a>启动和关闭 MongoDB</h5><p>进入 <code>bin</code> 目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/mongodb/bin</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local/mongodb/bin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>启动 MongoDB（-conf 使用配置文件方式启动）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod -f /etc/mongodb.conf</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mongod <span class="token parameter variable">-f</span> /etc/mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>关闭 MongoDB（-conf 使用配置文件方式关闭 ）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --shutdown -f /etc/mongodb.conf</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mongod <span class="token parameter variable">--shutdown</span> <span class="token parameter variable">-f</span> /etc/mongodb.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="创建-MongoDB-数据库及管理员账号"><a href="#创建-MongoDB-数据库及管理员账号" class="headerlink" title="创建 MongoDB 数据库及管理员账号"></a>创建 MongoDB 数据库及管理员账号</h5><p>进入mongodb的命令行模式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/mongodb/bin</span><br><span class="line">./mongo</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local/mongodb/bin
+./mongo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>切换到 admin 数据库，并创建 root （管理员）用户：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use admin;</span><br><span class="line">db.createUser(&#123;user:<span class="string">&#x27;root&#x27;</span>, <span class="built_in">pwd</span>:<span class="string">&#x27;123456&#x27;</span>, mechanisms : [<span class="string">&quot;SCRAM-SHA-1&quot;</span>] ,roles:[&#123;role:<span class="string">&#x27;root&#x27;</span>, db:<span class="string">&#x27;admin&#x27;</span>&#125;]&#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">use admin<span class="token punctuation">;</span>
+db.createUser<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>user:<span class="token string">'root'</span>, pwd:<span class="token string">'123456'</span>, mechanisms <span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"SCRAM-SHA-1"</span><span class="token punctuation">]</span> ,roles:<span class="token punctuation">[</span><span class="token punctuation">&#123;</span>role:<span class="token string">'root'</span>, db:<span class="token string">'admin'</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>创建好账号后，可以选择打开 <code>mongodb.conf</code> 中的 <code>auth=true</code> 授权验证。<br>验证账号是否授权成功：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.auth(<span class="string">&quot;root&quot;</span>,<span class="string">&quot;123456&quot;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">db.auth<span class="token punctuation">(</span><span class="token string">"root"</span>,<span class="token string">"123456"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果返回 ‘1’表示验证成功， 如果是 ‘0’ 表示验证失败</p>
 <h3 id="3-数据库的删除和创建"><a href="#3-数据库的删除和创建" class="headerlink" title="3.数据库的删除和创建"></a>3.数据库的删除和创建</h3><h4 id="1-创建"><a href="#1-创建" class="headerlink" title="1.创建"></a>1.创建</h4><blockquote>
@@ -298,7 +321,10 @@
 <blockquote>
 <p>db 展示当前使用的数据库</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MongoDB默认的数据库</span><br><span class="line">	admin 权限和用户</span><br><span class="line">	local 这个数据永远不会复制 </span><br><span class="line">	config 分片设置</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">MongoDB默认的数据库
+  admin 权限和用户
+  local 这个数据永远不会复制 
+  config 分片设置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="2-删除"><a href="#2-删除" class="headerlink" title="2.删除"></a>2.删除</h4><blockquote>
 <p>db.dropDatabase()</p>
@@ -315,29 +341,42 @@
 <p>insert和save</p>
 <p>db.集合名.insert          插入新文档时，<code>_id</code>字段会自动生成：</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.collection.insert(&#123;</span><br><span class="line">  &quot;articleId&quot;:1,&quot;content&quot;:&quot;good&quot;,&quot;userId&quot;:1001,&quot;createTime&quot;:new Date()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.insert(&#123;
+  &quot;articleId&quot;:1,&quot;content&quot;:&quot;good&quot;,&quot;userId&quot;:1001,&quot;createTime&quot;:new Date()
+&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>db.集合名.find()</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.collection.find()</span><br><span class="line">//条件查询</span><br><span class="line">db.collection.find(&#123;&quot;userId&quot;:1002&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.find()
+&#x2F;&#x2F;条件查询
+db.collection.find(&#123;&quot;userId&quot;:1002&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>投影查询</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 为不显示 1 为显示</span><br><span class="line">db.collection.find(&#123;&#125;,&#123;&quot;content&quot;:1,_id:0&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">0 为不显示 1 为显示
+db.collection.find(&#123;&#125;,&#123;&quot;content&quot;:1,_id:0&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="6-通过try-catch捕获错误"><a href="#6-通过try-catch捕获错误" class="headerlink" title="6.通过try catch捕获错误"></a>6.通过try catch捕获错误</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">  db.collection.insertMany(&#123;</span><br><span class="line">  </span><br><span class="line">  &#125;)</span><br><span class="line">&#125;catch(e)&#123;</span><br><span class="line">  print(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-通过try-catch捕获错误"><a href="#6-通过try-catch捕获错误" class="headerlink" title="6.通过try catch捕获错误"></a>6.通过try catch捕获错误</h3><pre class="line-numbers language-none"><code class="language-none">try&#123;
+  db.collection.insertMany(&#123;
+  
+  &#125;)
+&#125;catch(e)&#123;
+  print(e)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="7-文档的更新"><a href="#7-文档的更新" class="headerlink" title="7.文档的更新"></a>7.文档的更新</h3><blockquote>
 <p>db.collection.update({“_id”:”1”},{“name”:”richu”})</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.collection.update(&#123;userId:&quot;1001&quot;&#125;, &#123;$set:&#123;content:&quot;test&quot;&#125;&#125;)</span><br><span class="line">//批量更新</span><br><span class="line">db.collection.update(&#123;_id:&quot;67121a9cb63f7427aa0306b5&quot;&#125;, &#123;$set:&#123;userId:&quot;test&quot;&#125;&#125;,&#123;multi:true&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.update(&#123;userId:&quot;1001&quot;&#125;, &#123;$set:&#123;content:&quot;test&quot;&#125;&#125;)
+&#x2F;&#x2F;批量更新
+db.collection.update(&#123;_id:&quot;67121a9cb63f7427aa0306b5&quot;&#125;, &#123;$set:&#123;userId:&quot;test&quot;&#125;&#125;,&#123;multi:true&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="8-删除"><a href="#8-删除" class="headerlink" title="8.删除"></a>8.删除</h3><blockquote>
 <p>db.collection.remove({“_id”:”1”})</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.remove(&#123;&quot;_id&quot;:1&#125;, options)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.remove(&#123;&quot;_id&quot;:1&#125;, options)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="9-比较操作符"><a href="#9-比较操作符" class="headerlink" title="9.比较操作符"></a>9.比较操作符</h3><p>比较操作符有：</p>
 <table>
@@ -390,7 +429,7 @@
 </tr>
 </tbody></table>
 <p>查找年龄大于 25 且城市为 “New York” 的文档：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.myCollection.find(&#123; age: &#123; $gt: 25 &#125;, city: &quot;New York&quot; &#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.myCollection.find(&#123; age: &#123; $gt: 25 &#125;, city: &quot;New York&quot; &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="10-逻辑操作符"><a href="#10-逻辑操作符" class="headerlink" title="10.逻辑操作符"></a>10.逻辑操作符</h3><p>逻辑操作符有：</p>
 <table>
@@ -443,7 +482,7 @@
 </tr>
 </tbody></table>
 <p>查找包含 age 字段的文档：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.myCollection.find(&#123; age: &#123; $exists: true &#125; &#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.myCollection.find(&#123; age: &#123; $exists: true &#125; &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="12-数组操作符"><a href="#12-数组操作符" class="headerlink" title="12.数组操作符"></a>12.数组操作符</h3><p>数组操作符有：</p>
 <table>
@@ -471,7 +510,7 @@
 </tr>
 </tbody></table>
 <p>查找数组 tags 中包含 “red” 和 “blue” 的文档：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.myCollection.find(&#123; tags: &#123; $all: [&quot;red&quot;, &quot;blue&quot;] &#125; &#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.myCollection.find(&#123; tags: &#123; $all: [&quot;red&quot;, &quot;blue&quot;] &#125; &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="13-其他操作符"><a href="#13-其他操作符" class="headerlink" title="13.其他操作符"></a>13.其他操作符</h3><p>还有一些其他操作符如下：</p>
 <table>
@@ -499,7 +538,7 @@
 </tr>
 </tbody></table>
 <p>查找名字以 “A” 开头的文档：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.myCollection.find(&#123; name: &#123; $regex: /^A/ &#125; &#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.myCollection.find(&#123; name: &#123; $regex: &#x2F;^A&#x2F; &#125; &#125;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="3-MongoDB进阶"><a href="#3-MongoDB进阶" class="headerlink" title="3.MongoDB进阶"></a>3.MongoDB进阶</h2><h3 id="1-索引的创建"><a href="#1-索引的创建" class="headerlink" title="1.索引的创建"></a>1.索引的创建</h3><p>索引通常能够极大的提高查询的效率，如果没有索引，MongoDB在读取数据时必须扫描集合中的每个文件并选取那些符合查询条件的记录。</p>
 <p>这种扫描全集合的查询效率是非常低的，特别在处理大量的数据时，查询可能要花费几十秒甚至几分钟，这对网站的性能是非常致命的。</p>
@@ -516,7 +555,7 @@
 <p>MongoDB使用的是B-tree 而mysql使用的是B+tree</p>
 </blockquote>
 <p>createIndex() 方法基本语法格式如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.createIndex( keys, options )</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.createIndex( keys, options )<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
 <li><code>db</code>：数据库的引用。</li>
@@ -533,13 +572,13 @@
 <li><code>expireAfterSeconds</code>：设置索引字段的过期时间，MongoDB 将自动删除过期的文档。</li>
 <li><code>weights</code>：为文本索引指定权重。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.articledb.createIndex(&#123;userId:1&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.articledb.createIndex(&#123;userId:1&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="2-创建哈希索引"><a href="#2-创建哈希索引" class="headerlink" title="2.创建哈希索引"></a>2.创建哈希索引</h3><p>从 MongoDB 3.2 版本开始，可以使用哈希索引对字段进行哈希，以支持大范围的数值查找。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.createIndex( &#123; field: &quot;hashed&quot; &#125; )</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.createIndex( &#123; field: &quot;hashed&quot; &#125; )<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="3-查看索引"><a href="#3-查看索引" class="headerlink" title="3.查看索引"></a>3.查看索引</h3><p>使用 getIndexes() 方法可以查看集合中的所有索引：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.collection.getIndexes()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">db.collection.getIndexes()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="4-删除索引"><a href="#4-删除索引" class="headerlink" title="4.删除索引"></a>4.删除索引</h3><p>使用 dropIndex() 或 dropIndexes() 方法可以删除索引：</p>
 <blockquote>
@@ -547,17 +586,54 @@
 </blockquote>
 <p><em>&#x2F;&#x2F; 删除指定的索引</em><br>db.collection.dropIndex( “indexName” )</p>
 <p><em>&#x2F;&#x2F; 删除所有索引</em><br>db.collection.dropIndexes()</p>
-<h2 id="4-业务场景的使用"><a href="#4-业务场景的使用" class="headerlink" title="4.业务场景的使用"></a>4.业务场景的使用</h2><h3 id="1-基本业务"><a href="#1-基本业务" class="headerlink" title="1.基本业务"></a>1.基本业务</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- MongoDB Driver --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mongodb<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mongodb-driver-sync<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-业务场景的使用"><a href="#4-业务场景的使用" class="headerlink" title="4.业务场景的使用"></a>4.业务场景的使用</h2><h3 id="1-基本业务"><a href="#1-基本业务" class="headerlink" title="1.基本业务"></a>1.基本业务</h3><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-data-mongodb<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- MongoDB Driver --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mongodb<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mongodb-driver-sync<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>配置连接</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  data:</span><br><span class="line">    mongodb:</span><br><span class="line">      database: mydb</span><br><span class="line">      host: 192.168.3.11</span><br><span class="line">      port: 27017</span><br><span class="line">      username: root</span><br><span class="line">      password: 123456</span><br><span class="line">      authentication-database: admin</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  data:
+    mongodb:
+      database: mydb
+      host: 192.168.3.11
+      port: 27017
+      username: root
+      password: 123456
+      authentication-database: admin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>实体类</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span>  <span class="comment">//lombok 简化开发 不需要写set get</span></span><br><span class="line"><span class="meta">@Document(collection = &quot;comment&quot;)</span>   <span class="comment">//指定文档的名字</span></span><br><span class="line"><span class="meta">@CompoundIndex(def = &quot;&#123;&#x27;userid&#x27;:1,&#x27;nickname&#x27;:-1&#125;&quot;)</span>   <span class="comment">//指定索引 与MongoDB原生写法类似</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Article</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line">    <span class="meta">@Field(&quot;content&quot;)</span>  <span class="comment">//给字段起别名</span></span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line">    <span class="keyword">private</span> Date publishtime;</span><br><span class="line">    <span class="meta">@Indexed</span>   <span class="comment">//指明该字段为索引</span></span><br><span class="line">    <span class="keyword">private</span> String userid;</span><br><span class="line">    <span class="keyword">private</span> String nickname;</span><br><span class="line">    <span class="keyword">private</span> Integer likenum;</span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer replynum;</span><br><span class="line">    <span class="keyword">private</span> String state;</span><br><span class="line">    <span class="keyword">private</span> String parentid;</span><br><span class="line">    <span class="keyword">private</span> String articleid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Data</span>  <span class="token comment">//lombok 简化开发 不需要写set get</span>
+<span class="token annotation punctuation">@Document</span><span class="token punctuation">(</span>collection <span class="token operator">=</span> <span class="token string">"comment"</span><span class="token punctuation">)</span>   <span class="token comment">//指定文档的名字</span>
+<span class="token annotation punctuation">@CompoundIndex</span><span class="token punctuation">(</span>def <span class="token operator">=</span> <span class="token string">"&#123;'userid':1,'nickname':-1&#125;"</span><span class="token punctuation">)</span>   <span class="token comment">//指定索引 与MongoDB原生写法类似</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Article</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> id<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Field</span><span class="token punctuation">(</span><span class="token string">"content"</span><span class="token punctuation">)</span>  <span class="token comment">//给字段起别名</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> content<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Date</span> publishtime<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Indexed</span>   <span class="token comment">//指明该字段为索引</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> userid<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> nickname<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> likenum<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDateTime</span> createTime<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">Integer</span> replynum<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> state<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> parentid<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> articleid<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>注意:</p>
@@ -567,34 +643,75 @@
 <blockquote>
 <p>service类</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CommentServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">CommentService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CommentReposity commentReposity;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">Insert</span><span class="params">(Article comment)</span> &#123;</span><br><span class="line">        commentReposity.insert(comment);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Article <span class="title function_">find</span><span class="params">(Integer Id)</span> &#123;</span><br><span class="line">        Optional&lt;Article&gt; article = commentReposity.findById(String.valueOf(Id));</span><br><span class="line">        <span class="type">Article</span> <span class="variable">article1</span> <span class="operator">=</span> article.get();</span><br><span class="line">        <span class="keyword">return</span> article1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CommentServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">CommentService</span> <span class="token punctuation">&#123;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">CommentReposity</span> commentReposity<span class="token punctuation">;</span>
+
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token class-name">Insert</span><span class="token punctuation">(</span><span class="token class-name">Article</span> comment<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        commentReposity<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>comment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">Article</span> <span class="token function">find</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> <span class="token class-name">Id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> article <span class="token operator">=</span> commentReposity<span class="token punctuation">.</span><span class="token function">findById</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token class-name">Id</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Article</span> article1 <span class="token operator">=</span> article<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> article1<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>进行测试</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFindById</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">Article</span> <span class="variable">article</span> <span class="operator">=</span> commentService.find(<span class="number">1</span>);</span><br><span class="line">    System.out.println(article);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFindById</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Article</span> article <span class="token operator">=</span> commentService<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>article<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="2-分页查询业务"><a href="#2-分页查询业务" class="headerlink" title="2.分页查询业务"></a>2.分页查询业务</h3><blockquote>
 <p>CommentReposity</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">CommentReposity</span> <span class="keyword">extends</span> <span class="title class_">MongoRepository</span>&lt;Article, String&gt; &#123;</span><br><span class="line">    Page&lt;Article&gt; <span class="title function_">findByParentid</span><span class="params">(String author, Pageable pageable)</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">CommentReposity</span> <span class="token keyword">extends</span> <span class="token class-name">MongoRepository</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> <span class="token function">findByParentid</span><span class="token punctuation">(</span><span class="token class-name">String</span> author<span class="token punctuation">,</span> <span class="token class-name">Pageable</span> pageable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>service</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分页查询</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> Page&lt;Article&gt; <span class="title function_">findByPage</span><span class="params">(String parentId, Integer pageNo,Integer pageSize)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> commentReposity.findByParentid(parentId, PageRequest.of(pageNo-<span class="number">1</span>, pageSize));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//分页查询</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> <span class="token class-name">Page</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Article</span><span class="token punctuation">></span></span> <span class="token function">findByPage</span><span class="token punctuation">(</span><span class="token class-name">String</span> parentId<span class="token punctuation">,</span> <span class="token class-name">Integer</span> pageNo<span class="token punctuation">,</span><span class="token class-name">Integer</span> pageSize<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> commentReposity<span class="token punctuation">.</span><span class="token function">findByParentid</span><span class="token punctuation">(</span>parentId<span class="token punctuation">,</span> <span class="token class-name">PageRequest</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>pageNo<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-mongoTemplate"><a href="#3-mongoTemplate" class="headerlink" title="3.mongoTemplate"></a>3.mongoTemplate</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> MongoTemplate mongoTemplate;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateCommentLikeNum</span><span class="params">(String Id)</span> &#123;</span><br><span class="line">    <span class="comment">//查询条件</span></span><br><span class="line">    <span class="type">Query</span> <span class="variable">query</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Query</span>(Criteria.where(<span class="string">&quot;_id&quot;</span>).is(Id));</span><br><span class="line">    <span class="comment">//更新条件</span></span><br><span class="line">    <span class="type">Update</span> <span class="variable">update</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Update</span>();</span><br><span class="line">    update.inc(<span class="string">&quot;likenum&quot;</span>, <span class="number">1</span>);</span><br><span class="line">    mongoTemplate.updateFirst(query,update,Article.class);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-mongoTemplate"><a href="#3-mongoTemplate" class="headerlink" title="3.mongoTemplate"></a>3.mongoTemplate</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Autowired</span>
+<span class="token keyword">private</span> <span class="token class-name">MongoTemplate</span> mongoTemplate<span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">updateCommentLikeNum</span><span class="token punctuation">(</span><span class="token class-name">String</span> <span class="token class-name">Id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//查询条件</span>
+    <span class="token class-name">Query</span> query <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Query</span><span class="token punctuation">(</span><span class="token class-name">Criteria</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">"_id"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">is</span><span class="token punctuation">(</span><span class="token class-name">Id</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//更新条件</span>
+    <span class="token class-name">Update</span> update <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    update<span class="token punctuation">.</span><span class="token function">inc</span><span class="token punctuation">(</span><span class="token string">"likenum"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    mongoTemplate<span class="token punctuation">.</span><span class="token function">updateFirst</span><span class="token punctuation">(</span>query<span class="token punctuation">,</span>update<span class="token punctuation">,</span><span class="token class-name">Article</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>添加</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User save = mongoTemplate.save(user, collectionName);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">User save &#x3D; mongoTemplate.save(user, collectionName);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>删除</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String collectionName = &quot;springboot&quot;;</span><br><span class="line">Criteria idCriteria = Criteria.where(&quot;id&quot;).is(666);</span><br><span class="line">DeleteResult deleteResult = mongoTemplate.remove(new Query(idCriteria), User.class, collectionName);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">String collectionName &#x3D; &quot;springboot&quot;;
+Criteria idCriteria &#x3D; Criteria.where(&quot;id&quot;).is(666);
+DeleteResult deleteResult &#x3D; mongoTemplate.remove(new Query(idCriteria), User.class, collectionName);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="5-MongoDB高级"><a href="#5-MongoDB高级" class="headerlink" title="5.MongoDB高级"></a>5.MongoDB高级</h2><h3 id="1-副本集"><a href="#1-副本集" class="headerlink" title="1.副本集"></a>1.副本集</h3><ul>
 <li>主节点类型</li>
