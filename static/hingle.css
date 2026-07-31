@@ -922,8 +922,8 @@ footer .sub-footer p{ font-size: .875em }
 /* - Prism 代码块样式 */
 pre[class*="language-"]{
     color: #3f3340;
-    border-color: #f3b8ca;
-    background: rgba(255, 241, 245, .68);
+    border-color: #f6d8e1;
+    background: rgba(255, 249, 251, .42);
     overflow-x: auto;
     tab-size: 2;
 }
@@ -979,7 +979,7 @@ pre[class*="language-"].line-numbers {
 }
 
 pre[class*="language-"] .line-numbers-rows{
-    border-color: #efb2c5;
+    border-color: #f3d4dd;
 }
 
 .code-block{
@@ -991,15 +991,37 @@ pre[class*="language-"] .line-numbers-rows{
     right: .65em;
     z-index: 1;
     position: absolute;
-    min-width: 4.5em;
-    padding: .35em .7em;
+    width: 2.25em;
+    height: 2.25em;
+    padding: 0;
     color: #9d174d;
-    border: 1px solid #efa6bf;
+    border: 1px solid #efbfd0;
     border-radius: 4px;
-    background: rgba(255, 255, 255, .88);
+    background: rgba(255, 255, 255, .92);
     cursor: pointer;
     font-size: .8em;
-    line-height: 1.4;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .18s, visibility .18s, background .18s;
+}
+
+.code-copy-btn::before,
+.code-copy-btn::after{
+    content: "";
+    position: absolute;
+    width: .72em;
+    height: .82em;
+    border: 1.5px solid currentColor;
+    border-radius: 2px;
+}
+
+.code-copy-btn::before{ top: .58em; left: .58em }
+.code-copy-btn::after{ top: .82em; left: .82em; background: inherit }
+.code-block:hover .code-copy-btn,
+.code-copy-btn:focus-visible,
+.code-block:focus-within .code-copy-btn{
+    opacity: 1;
+    visibility: visible;
 }
 
 .code-copy-btn:hover{ background: #ffd6e3 }
@@ -1007,6 +1029,13 @@ pre[class*="language-"] .line-numbers-rows{
     color: #166534;
     border-color: #86c99a;
     background: #eaf8ee;
+}
+
+@media (hover: none){
+    .code-copy-btn{
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .line-numbers .line-numbers-rows {
