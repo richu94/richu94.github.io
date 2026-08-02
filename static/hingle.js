@@ -52,6 +52,7 @@ var Paul_Hingle = function (config) {
                 t.id = "title-" + id;
 
                 switch (t.tagName){
+                    case "H1": cls = "item-1"; break;
                     case "H2": cls = "item-2"; break;
                     case "H3": cls = "item-3"; break;
                     case "H4": cls = "item-4"; break;

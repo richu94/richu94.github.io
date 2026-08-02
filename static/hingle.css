@@ -748,22 +748,27 @@ article h1:before{ font-weight: bold }
 
 .article-list a{
     display: block;
-    margin-bottom: .5em;
+    margin-bottom: .35em;
+    padding: .3em .4em;
+    border-left: 2px solid transparent;
+    border-radius: 3px;
+    line-height: 1.45;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+    transition: color .2s, border-color .2s, background-color .2s;
 }
 
-.article-list .item-2:before,
-.article-list .item-3:before,
-.article-list .item-4:before,
-.article-list .item-5:before,
-.article-list .item-6:before{
-    margin-right: .5em;
+.article-list a:hover{
+    border-left-color: var(--blue);
+    background-color: rgba(111, 159, 199, .1);
 }
 
-.article-list .item-2:before{ content: "-" }
-.article-list .item-3:before{ content: "--" }
-.article-list .item-4:before{ content: "---" }
-.article-list .item-5:before{ content: "----" }
-.article-list .item-6:before{ content: "-----" }
+.article-list .item-1{ font-size: 1.05em; font-weight: 700 }
+.article-list .item-2{ padding-left: .7em; font-size: 1em; font-weight: 650 }
+.article-list .item-3{ padding-left: 1.35em; font-size: .94em; font-weight: 600 }
+.article-list .item-4{ padding-left: 2em; font-size: .89em; font-weight: 500 }
+.article-list .item-5{ padding-left: 2.65em; font-size: .84em; font-weight: 450 }
+.article-list .item-6{ padding-left: 3.3em; font-size: .8em; font-weight: 400 }
 
 @media screen and (min-width: 800px){
     body.has-trees{ margin-right: 15em }
